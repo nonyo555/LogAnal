@@ -1,0 +1,80 @@
+
+.head_main{
+    text-align: center;
+    position:static;
+    margin: 100px;
+    background-color: cornsilk;
+    font-style: italic;
+    font-size: 30px;
+}
+.Map_bt{
+    margin: 10px;
+    position : flex;
+    background-color: red;
+    display: inline-block;
+    text-align: center;
+    width: 240px;
+    height: 120px;
+    justify-content: center;
+}
+.List_bt{
+    margin: 10px;
+    position : flex;
+    background-color: greenyellow;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    text-align: center;
+    justify-content: center;
+}
+.Graph_bt{
+    position : flex;
+    background-color: blue;
+    display: inline-block;
+    width: 240px;
+    height: 120px;
+    text-align: center;
+    justify-content: center;
+
+}
+.Build_bt{
+    position : flex;
+    background-color: aqua;
+    display: inline-block;
+    width:  240px;
+    height: 120px;
+    text-align: center;
+    justify-content: center;
+
+}
+.text{
+    position: relative;
+    top: 40%
+}
+.graph{
+    margin: 10px;
+    position: absolute;
+    min-width: 250px;
+    min-height: 250px;
+    background-color: antiquewhite;
+}
+.body_main{
+    height: max-content;
+    font-style: italic;
+    font-size: 20px;
+    background-color: darkgrey;
+    text-align: center;
+}
+body {
+    background-color: lightblue;
+  } 
+.sub_main{
+    margin: 20px;
+    height: 30px;
+    border: 3px solid orangered; 
+    background-color: white;
+}
+.sub{
+    position: relative;
+    top: 20%;
+}
