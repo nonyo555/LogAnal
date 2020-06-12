@@ -1,11 +1,11 @@
 
 .head_main{
-    text-align: center;
+    text-align: left;
     position:static;
     margin: 100px;
     background-color: cornsilk;
-    font-style: italic;
-    font-size: 30px;
+    font-style: normal;
+    font-size: 64px;
 }
 .Map_bt{
     margin: 10px;
@@ -13,8 +13,8 @@
     background-color: red;
     display: inline-block;
     text-align: center;
-    width: 240px;
-    height: 120px;
+    width:  317px;
+    height: 169px;
     justify-content: center;
 }
 .List_bt{
@@ -22,8 +22,8 @@
     position : flex;
     background-color: greenyellow;
     display: inline-block;
-    width: 240px;
-    height: 120px;
+    width:  317px;
+    height: 169px;
     text-align: center;
     justify-content: center;
 }
@@ -31,8 +31,8 @@
     position : flex;
     background-color: blue;
     display: inline-block;
-    width: 240px;
-    height: 120px;
+    width:  317px;
+    height: 169px;
     text-align: center;
     justify-content: center;
 
@@ -41,8 +41,8 @@
     position : flex;
     background-color: aqua;
     display: inline-block;
-    width:  240px;
-    height: 120px;
+    width:  317px;
+    height: 169px;
     text-align: center;
     justify-content: center;
 
@@ -54,27 +54,33 @@
 .graph{
     margin: 10px;
     position: absolute;
-    min-width: 250px;
-    min-height: 250px;
+    min-width: 708px;
+    min-height: 358px;
     background-color: antiquewhite;
 }
 .body_main{
-    height: max-content;
+    position: relative;
+    height: auto;
+    margin-left: 100px;
+    margin-right: 100px;
     font-style: italic;
     font-size: 20px;
-    background-color: darkgrey;
-    text-align: center;
+    /* background-color: darkgrey; */
+    align-items:center ;
 }
 body {
     background-color: lightblue;
   } 
 .sub_main{
-    margin: 20px;
-    height: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    height: auto;
     border: 3px solid orangered; 
     background-color: white;
 }
 .sub{
     position: relative;
-    top: 20%;
+    top: 12%;
+    font-size: 30px;
 }
