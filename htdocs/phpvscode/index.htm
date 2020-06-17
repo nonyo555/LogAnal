@@ -1,18 +1,43 @@
 <html>
-    <link href="index.css" media="all" rel="Stylesheet" type="text/css" /> 
-<div class= 'head_main'>
-<span class = 'appname' > KMITL Log Analytics</span> 
-</div>
-<div class = 'sub_main'>
-<label class = 'sub'>Top-problem</label>
-</div>
-<div class = 'body_main'>
-    <span class = 'Map_bt' ><label class ='text'> Map </label></span>
-    <span class = 'Graph_bt' ><label class ='text'> Graph</label> </span>
-    <span class = 'graph'> .......</span>     
-    <br/>
-    <span class = 'List_bt' > <label class ='text'>Log List</label> </span> 
-    <span class = 'Build_bt' > <label class ='text'>Building List</label></span>    
-</div>
-<div class = 'tail_main'></div>
+
+<head>
+    <title>KMITL Log Analytics</title>
+    <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class='head_main'>
+        <img src="../img/header.png">
+    </div>
+    <div class='sub_main'>
+        <label class='sub'>Top-problem</label>
+    </div>
+    <div class='body_main'>
+        <table width='100%' height="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="20%" height="80%" valign="top">
+                    <br>
+                    <br>
+                    <span class='button'><a href="../phpvscode/map.htm" style="text-decoration:none; color: #333333;"><label class="text">Map</label></a></span>
+                    <br>
+                    <span class='button'><a href="../phpvscode/graph.htm" style="text-decoration:none; color: #333333;"><label class="text">Graph</label></a></span>
+                    <br>
+                    <span class='button'><a href="../phpvscode/loglist.htm" style="text-decoration:none; color: #333333;"><label class="text">Log List</label></a></span>
+                    <br>
+                    <span class='button'> <a href="../phpvscode/buildinglist.htm" style="text-decoration:none; color: #333333;"><label class="text">Building List</label></a></span>
+                </td>
+                <td width="80%" height="100%" valign="top">
+                    <!--span class='graph'> .......</span-->
+                    <br><br>
+                    <h2>Graph name 1</h2>
+                    <img src="../img/graph_example.png" width="95%">
+                </td>
+            </tr>
+            <tr width="100%"></tr>
+        </table>
+    </div>
+    <div class='tail_main'></div>
+
+</body>
+
 </html>
