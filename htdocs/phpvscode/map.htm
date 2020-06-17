@@ -8,6 +8,7 @@
 
 <script>
     function initialize() {
+        var src = "https://github.com/nonyo555/LogAnal/releases/download/1.0.0/map.kml";
         var mapOptions = {
           center: new google.maps.LatLng(13.728345,100.778075), //Set your latitude, longitude
           zoom: 17,
@@ -16,17 +17,10 @@
         }
 
         var map = new google.maps.Map(document.getElementById('google-map'), mapOptions); // get the div by id
-
-        var ctaLayer = new google.maps.KmlLayer({
-          url: '../img/map.kml' // Set the KML file
-        });
-
-        // attach the layer to the map
+        
+        var ctaLayer = new google.maps.KmlLayer(src);
         ctaLayer.setMap(map);
     }
-
-    // load the map
-    google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
 <body onload="initialize()">
@@ -38,6 +32,7 @@
     </div>
     <div class='body_main'>
         <div id="google-map" class="google-map" style="width: 100%; height: 100%; border-radius: 10px;"></div>
+        <div id="capture"></div>
     </div>
     <div class='tail_main'></div>
 </body>
