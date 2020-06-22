@@ -1,22 +1,86 @@
 <html>
+    <style>
 
+
+    </style>
 <head>
-    <title>KMITL Log Analytics - Log List</title>
+    <title>KMITL Log Analytics - Log List</title>   
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
 </head>
-
 <body>
     <div class='head_main'>
         <a href="../phpvscode/index.htm"><img src="../img/header.png"></a>
     </div>
     <div class='sub_main'>
         <label class='sub'>Top-problem</label>
+        
     </div>
     <div class='body_main'>
         <h2>Log List Page</h2>
+
+            <div class= time>
+            <label class = 'gtext'>Time</label>
+            <input class = 'time_start' placeholder = 'Start' type = 'datetime-local'/>
+            <label class = 'text'> : </label>
+            <input class = 'time_stop' placeholder = 'Stop'  type = 'datetime-local'/>
+        </div>
+        <div style="text-align: center;" >
+                <form action="/phpvscode/loglist.htm" style="display: inline;"> 
+                    <input type="file" id="input" value="ImportFile" multiple>
+                    <button class = 'imp_bt' type = submit onclick="importFile()">import</button>
+                </form>
+        <div class = 'search'  style="display: inline;">
+        <input type = 'search-bar' placeholder = 'Search'/>
+        <button class = 'search-bt'>Search</button>
+        </div>
+        </div>
+        <div class='loglists' style="  overflow-y: scroll;">
+            <span  onscroll="" >log lists</span>
+        </div>
     </div>
     <div class='tail_main'></div>
-
 </body>
+<script>
+   
+    function readTextFile(file)
+    {
+        alert("hello")
+        var file =  fileList[i].name
+        var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+                rawFile.send(null);
+                return allText
+            }
+            else{
+                alert('Nope');
+                rawFile.send(null);
+               return 
+            }
+        }
+    }
+    }
+    const inputElement = document.getElementById("input");
+    inputElement.addEventListener('change', (event) => {
+        const fileList = event.target.files;
+        for ( i =0 ; i<fileList.length ; i++){
+            console.log(fileList[i].name)
+        }
+      });
+    function importFile(){
+        var input =  document.getElementById("input").files;
+        for (var i = 0; i < input.length; i++)
+        {
+        console.log(input[i].name);
+        }
+    }
 
+</script>
 </html>
