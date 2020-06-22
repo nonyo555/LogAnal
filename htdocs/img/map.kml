@@ -2,7 +2,7 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document id="1PseVhA-nrD3q4CcPy2wudoigi4uIrt8z">
 	<name>KMITL BUILDING</name>
-	<gx:CascadingStyle kml:id="__managed_style_24099C667713F1DD3DE9">
+	<gx:CascadingStyle kml:id="__managed_style_0F6AD2BE66140F98A0C7">
 		<Style>
 			<IconStyle>
 				<scale>1.2</scale>
@@ -24,7 +24,7 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<gx:CascadingStyle kml:id="__managed_style_181284689813F1DD3DE9">
+	<gx:CascadingStyle kml:id="__managed_style_136374DF18140F98A0C6">
 		<Style>
 			<IconStyle>
 				<Icon>
@@ -45,40 +45,40 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<StyleMap id="__managed_style_00D18E2C3513F1DD3DE9">
+	<gx:CascadingStyle kml:id="__managed_style_2674D3E3B9140F98A0C4">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.0.18.6/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_078CB75862140F98A0C6">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#__managed_style_181284689813F1DD3DE9</styleUrl>
+			<styleUrl>#__managed_style_136374DF18140F98A0C6</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#__managed_style_24099C667713F1DD3DE9</styleUrl>
+			<styleUrl>#__managed_style_0F6AD2BE66140F98A0C7</styleUrl>
 		</Pair>
 	</StyleMap>
-	<gx:CascadingStyle kml:id="__managed_style_07257A1A7B13F1DD3DE6">
-		<styleUrl>https://earth.google.com/balloon_components/base/1.0.18.6/card_template.kml#main</styleUrl>
-		<Style>
-			<IconStyle>
-				<scale>1.2</scale>
-				<Icon>
-					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
-				</Icon>
-				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
-			</IconStyle>
-			<LabelStyle>
-			</LabelStyle>
-			<LineStyle>
-				<color>ff2dc0fb</color>
-				<width>6</width>
-			</LineStyle>
-			<PolyStyle>
-				<color>40ffffff</color>
-			</PolyStyle>
-			<BalloonStyle>
-			</BalloonStyle>
-		</Style>
-	</gx:CascadingStyle>
-	<gx:CascadingStyle kml:id="__managed_style_1607BFF16413F1DD3DE5">
+	<gx:CascadingStyle kml:id="__managed_style_14FB34AEDC140F98A0C4">
 		<styleUrl>https://earth.google.com/balloon_components/base/1.0.18.6/card_template.kml#main</styleUrl>
 		<Style>
 			<IconStyle>
@@ -100,14 +100,14 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<StyleMap id="__managed_style_0D60A19A4713F1DD3DE5">
+	<StyleMap id="__managed_style_07C205BF94140F98A0C4">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#__managed_style_1607BFF16413F1DD3DE5</styleUrl>
+			<styleUrl>#__managed_style_14FB34AEDC140F98A0C4</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#__managed_style_07257A1A7B13F1DD3DE6</styleUrl>
+			<styleUrl>#__managed_style_2674D3E3B9140F98A0C4</styleUrl>
 		</Pair>
 	</StyleMap>
 	<Placemark id="0D5BAABAAA13AEB38432">
@@ -122,7 +122,7 @@
 			<range>716.3176611284872</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -145,7 +145,7 @@
 			<range>1004.23207178028</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -168,7 +168,7 @@
 			<range>374.0393104295799</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -191,7 +191,7 @@
 			<range>352.5718702385711</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -214,7 +214,7 @@
 			<range>308.5576785871672</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -237,7 +237,7 @@
 			<range>308.0792234035835</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -260,7 +260,7 @@
 			<range>307.8301800984627</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -283,7 +283,7 @@
 			<range>504.3825733315316</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -306,7 +306,7 @@
 			<range>291.8972493257752</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -329,7 +329,7 @@
 			<range>171.4146295290448</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -352,7 +352,7 @@
 			<range>208.589285441376</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -375,7 +375,7 @@
 			<range>259.6926471657571</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -398,7 +398,7 @@
 			<range>156.411120490684</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -421,7 +421,7 @@
 			<range>391.5724690172647</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -444,7 +444,7 @@
 			<range>264.0240305789121</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -467,7 +467,7 @@
 			<range>260.4674974899536</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -490,7 +490,7 @@
 			<range>309.0575498725593</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -513,7 +513,7 @@
 			<range>473.8923486633576</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -536,7 +536,7 @@
 			<range>250.01829401539</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -559,7 +559,7 @@
 			<range>189.2918943456243</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -582,7 +582,7 @@
 			<range>160.336606195051</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -605,7 +605,7 @@
 			<range>117.5454501066633</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -628,7 +628,7 @@
 			<range>251.8404705218563</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -651,7 +651,7 @@
 			<range>107.0060046489926</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -674,7 +674,7 @@
 			<range>496.6962787662488</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -697,7 +697,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -720,7 +720,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -743,7 +743,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -766,7 +766,7 @@
 			<range>1045.236860753212</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -789,7 +789,7 @@
 			<range>1045.236860753212</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -812,7 +812,7 @@
 			<range>745.9015489512967</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -835,7 +835,7 @@
 			<range>747.5243053928717</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -858,7 +858,7 @@
 			<range>747.3697571603407</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -881,7 +881,7 @@
 			<range>747.0913014816324</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -904,7 +904,7 @@
 			<range>1047.034237228363</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -927,7 +927,7 @@
 			<range>313.2433316065362</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -950,7 +950,7 @@
 			<range>311.7507637405652</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -973,7 +973,7 @@
 			<range>226.0892768843769</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -996,7 +996,7 @@
 			<range>231.8690053039245</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1019,7 +1019,7 @@
 			<range>238.4578405395223</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1042,7 +1042,7 @@
 			<range>228.8363554932948</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1065,7 +1065,7 @@
 			<range>330.934260113063</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_0D60A19A4713F1DD3DE5</styleUrl>
+		<styleUrl>#__managed_style_07C205BF94140F98A0C4</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1088,7 +1088,7 @@
 			<range>302.9962599759893</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1111,7 +1111,7 @@
 			<range>246.4927030215767</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1134,7 +1134,7 @@
 			<range>244.081861846571</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1145,24 +1145,185 @@
 			</outerBoundaryIs>
 		</Polygon>
 	</Placemark>
-	<Placemark id="0A22BD032913ECBB124A">
-		<name>KMITL</name>
+	<Placemark id="0B7FD78212140F99E864">
+		<name>KMIDS</name>
 		<LookAt>
-			<longitude>100.7772877587602</longitude>
-			<latitude>13.72712682053638</latitude>
-			<altitude>3.486873098427072</altitude>
+			<longitude>100.7763894677428</longitude>
+			<latitude>13.73062535695669</latitude>
+			<altitude>3.27626420447066</altitude>
 			<heading>0</heading>
 			<tilt>0</tilt>
-			<gx:fovy>35</gx:fovy>
-			<range>2558.990535905469</range>
+			<gx:fovy>30</gx:fovy>
+			<range>666.3855562101526</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_00D18E2C3513F1DD3DE9</styleUrl>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
 					<coordinates>
-						100.7833634894583,13.72418310570054,2.878039432594579 100.7834562357054,13.73150852115146,2.87710011171662 100.7706874648338,13.73164334786441,2.876199191469435 100.7707492928522,13.72831767379577,2.87640250190796 100.7718435932105,13.72842270174001,2.590124792249155 100.7719065808973,13.72434822947133,3.169219089931454 100.7833634894583,13.72418310570054,2.878039432594579 
+						100.7758670675713,13.73113920980166,2.124897862764683 100.7758704298062,13.73083278228107,2.222639997628442 100.7767011684448,13.73084527995782,3.033683140552292 100.7766882172045,13.73118345521904,2.648584117352508 100.7758670675713,13.73113920980166,2.124897862764683 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0D2CEE2ACC140F9A89B6">
+		<name>Medicine Department</name>
+		<LookAt>
+			<longitude>100.775624970803</longitude>
+			<latitude>13.73061367136682</latitude>
+			<altitude>2.785745202079943</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>362.1563638362204</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.775402300817,13.73114664967199,3.017256851648611 100.7753077765572,13.73114683808976,2.889054970060025 100.7753150095948,13.73094765312811,3.011474264122795 100.7754165671134,13.73094935395755,3.043582971704222 100.7754166560158,13.73084197644065,3.198064413025681 100.7756160638348,13.73084901636867,3.011048452125573 100.7756089425867,13.73097697388577,3.108627957594801 100.775705140866,13.73097364476104,2.976947681938236 100.7756979552983,13.73112898292197,3.271768567861639 100.7756196305907,13.73112724317144,3.279244309860021 100.7756178509631,13.73126726419252,3.303691302935312 100.7754004206175,13.73125768166922,2.857999814800083 100.775402300817,13.73114664967199,3.017256851648611 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="08B9431A0A140F9B53E4">
+		<name>Plaza Avenue</name>
+		<LookAt>
+			<longitude>100.7767345671087</longitude>
+			<latitude>13.72870138807517</latitude>
+			<altitude>3.521339309076581</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>190.580765879622</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7768009782051,13.72870865720891,4.060978501311436 100.7769280772613,13.72871432891826,4.542637886151959 100.7769286364834,13.72865209655307,3.632478590082577 100.7770451814358,13.72865488193444,3.398997096375744 100.7770345414858,13.72889179160474,5.797357206273348 100.7769329126078,13.72888609387287,6.102030368528119 100.7769273900677,13.72949164879911,5.663143046357089 100.7767799366574,13.72949298940544,4.587900373667697 100.7767914019238,13.72882149539319,4.980653490662695 100.7766900591347,13.72882161846721,3.86252809867679 100.7766931284883,13.72864352060395,3.114913437065123 100.7768065843822,13.72864356252084,3.335326901164963 100.7768009782051,13.72870865720891,4.060978501311436 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="073050A895140F9D6A1A">
+		<name>Industrial Education and Technology Department</name>
+		<LookAt>
+			<longitude>100.7807794118661</longitude>
+			<latitude>13.72919456823244</latitude>
+			<altitude>3.380821290578007</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>701.1850065064937</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7809242986365,13.73004910145386,3.675803276661023 100.7809174705551,13.73030770999291,3.315177172797728 100.78039633258,13.73030090725498,3.376773134135727 100.7803239392592,13.73025713535431,3.501402192461089 100.780334654412,13.72996823676205,4.072808424981536 100.7803897823821,13.72996495767434,4.008862749629536 100.7803862197986,13.72984121424276,3.803751251496466 100.7806103353616,13.72984819731924,3.501168694840391 100.7807587101157,13.72986155706378,3.551652390714053 100.7807552674214,13.7300489794148,3.776262557825898 100.7809242986365,13.73004910145386,3.675803276661023 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0AFD162160140F9EC74A">
+		<name>อาคารปฏิบัติการพิเศษจอมไตรณะครุศาสตร์อุตสาหกรรมและเทคโนโลยี</name>
+		<LookAt>
+			<longitude>100.7804109564577</longitude>
+			<latitude>13.72924135245941</latitude>
+			<altitude>3.409332606697475</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>655.1301431194588</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7804299125526,13.72976800321358,3.936914300774377 100.7804374960402,13.72939603980903,3.908300721136835 100.7807484903385,13.72940713905211,3.708597313488362 100.7807676040678,13.72923766650091,3.430401705156307 100.7812618649903,13.72925242142308,2.640064627960692 100.7812415057437,13.72978291337055,3.719779134385153 100.7804299125526,13.72976800321358,3.936914300774377 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0074416C80140FA0886A">
+		<name>อาคารกิจกรรมนักศึกษา</name>
+		<LookAt>
+			<longitude>100.7787092810234</longitude>
+			<latitude>13.7289097609826</latitude>
+			<altitude>4.327113074864542</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>200.2327874130061</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7783624814097,13.72911053427009,2.946336134952368 100.7783717963207,13.72885984697164,2.930269934895966 100.7785309997147,13.72886448305838,3.367470430316717 100.7785322199792,13.72890636610563,3.43011287780745 100.7787347797722,13.72890863505116,4.439786785378153 100.7787336407772,13.72899540123115,4.275061685440824 100.7784972551598,13.72899124274267,3.412581370793477 100.7784949100704,13.72912366579451,3.398457437719362 100.7783624814097,13.72911053427009,2.946336134952368 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0A1D7EFEB3140FA37146">
+		<name>Food Industry Department</name>
+		<LookAt>
+			<longitude>100.7810157156222</longitude>
+			<latitude>13.72715477544667</latitude>
+			<altitude>3.990542583206684</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30</gx:fovy>
+			<range>720.904090844997</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7808025362058,13.72768630597732,3.007689765605068 100.7808098899634,13.72736506386625,3.874929223418611 100.7811398913612,13.72736846049222,4.046400064341283 100.7811257533134,13.72770304036693,3.696277047219698 100.7808025362058,13.72768630597732,3.007689765605068 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="02DEC5123F140FA46859">
+		<name>คอนโดพนักงานเจ้าหน้าที่</name>
+		<LookAt>
+			<longitude>100.7732652980508</longitude>
+			<latitude>13.72675254807701</latitude>
+			<altitude>2.965026367737653</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1191.979990344553</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_078CB75862140F98A0C6</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7710484761262,13.72572259606798,6.218949266298295 100.7710534236385,13.7255141846148,5.175486461926171 100.7717471255118,13.7255257622935,3.408486832274158 100.7717336533039,13.72573379763252,3.6655977343316 100.7710484761262,13.72572259606798,6.218949266298295 
 					</coordinates>
 				</LinearRing>
 			</outerBoundaryIs>
