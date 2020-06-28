@@ -1,85 +1,154 @@
 <html>
-    <style>
+<style>
 
 
-    </style>
+</style>
+
 <head>
-    <title>KMITL Log Analytics - Log List</title>   
+    <title>KMITL Log Analytics - Log List</title>
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
+    <link href="table.css" media="all" rel="Stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <script>
+        var jsondata;
+        async function callAPI() {
+            //handshaking and get first set of data
+            
+            let res = await fetch("http://localhost:4002/api/netdiagRequest/2020/05/01")
+            jsondata = await res.json();
+
+            makeTable(jsondata,"");
+        }
+
+        function makeTable(jsondata,id) {     
+            var cols = []; 
+            
+            var len = Object.keys(jsondata).length;
+            
+            for (var i = 0; i < len; i++) { 
+                for (var k in jsondata[i]) { 
+                    if (cols.indexOf(k) === -1) { 
+                        // Push all keys to the array 
+                        cols.push(k); 
+                    } 
+                } 
+            } 
+
+            var table = document.createElement("table"); 
+            var tr = table.insertRow(-1); 
+              
+            for (var i = 0; i < cols.length; i++) { 
+                var theader = document.createElement("th"); 
+                theader.innerHTML = cols[i]; 
+                tr.appendChild(theader); 
+            } 
+
+            // Adding the data to the table 
+            for (var i = 1; i <= len; i++) {                  
+                trow = table.insertRow(-1); 
+                for (var j = 0; j < cols.length; j++) { 
+                    var cell = trow.insertCell(-1); 
+                    if(j == 2){ //check username
+                        if(id == "" || id == jsondata[i][cols[j]]){
+                            cell.innerHTML = jsondata[i][cols[j]]; 
+                        }
+                        else{
+                            table.deleteRow(-1);
+                        }
+                    }
+                    else {
+                        cell.innerHTML = jsondata[i][cols[j]]; 
+                    }
+                } 
+            } 
+              
+            var el = document.getElementById("table"); 
+            el.innerHTML = ""; 
+            el.appendChild(table); 
+        }    
+
+        function search(){
+            var id = $('#search-id').val();
+            console.log(id);
+            makeTable(jsondata,id);
+        } 
+    </script>
+
 </head>
-<body>
+
+<body onload="callAPI()">
     <div class='head_main'>
         <a href="../phpvscode/index.htm"><img src="../img/header.png"></a>
     </div>
     <div class='sub_main'>
         <label class='sub'>Top-problem</label>
-        
+
     </div>
     <div class='body_main'>
         <h2>Log List Page</h2>
-            <div class= time>
-            <label class = 'gtext'>Time</label>
-            <input class = 'time_start' placeholder = 'Start' type = 'datetime-local'/>
-            <label class = 'text'> : </label>
-            <input class = 'time_stop' placeholder = 'Stop'  type = 'datetime-local'/>
+        <div class=time>
+            <label class='gtext'>Time</label>
+            <input class='time_start' placeholder='Start' type='datetime-local' />
+            <label class='text'> : </label>
+            <input class='time_stop' placeholder='Stop' type='datetime-local' />
         </div>
-        <div style="text-align: center;" >
-                <form action="/phpvscode/loglist.htm" style="display: inline;"> 
-                    <input type="file" id="input" value="ImportFile" multiple>
-                    <button class = 'imp_bt' type = submit onclick="importFile()">import</button>
-                </form>
-        <div class = 'search'  style="display: inline;">
-        <input type = 'search-bar' placeholder = 'Search'/>
-        <button class = 'search-bt'>Search</button>
+        <div style="text-align: center;">
+            <form action="/phpvscode/loglist.htm" style="display: inline;">
+                <input type="file" id="input" value="ImportFile" multiple>
+                <button class='imp_bt' type=submit onclick="importFile()">import</button>
+            </form>
+            <div class='search' style="display: inline;">
+                <input id="search-id" type='search-bar' placeholder='Search' />
+                <button class='search-bt' onclick="search()">Search</button>
+            </div>
         </div>
-        </div>
-        <div class='loglists' style="  overflow-y: scroll;">
-            <span  onscroll="" >log lists</span>
+        <div class='loglists' style="overflow-y: scroll; width: 90%;" >
+            <span onscroll="">
+                <table id="table"></table> 
+            </span>
         </div>
     </div>
     <div class='tail_main'></div>
 </body>
 <script>
-   
-    function readTextFile(file)
-    {
+
+    function readTextFile(file) {
         alert("hello")
-        var file =  fileList[i].name
+        var file = fileList[i].name
         var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-                rawFile.send(null);
-                return allText
-            }
-            else{
-                alert('Nope');
-                rawFile.send(null);
-               return 
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function () {
+            if (rawFile.readyState === 4) {
+                if (rawFile.status === 200 || rawFile.status == 0) {
+                    var allText = rawFile.responseText;
+                    alert(allText);
+                    rawFile.send(null);
+                    return allText
+                }
+                else {
+                    alert('Nope');
+                    rawFile.send(null);
+                    return
+                }
             }
         }
-    }
     }
     const inputElement = document.getElementById("input");
     inputElement.addEventListener('change', (event) => {
         const fileList = event.target.files;
-        for ( i =0 ; i<fileList.length ; i++){
+        for (i = 0; i < fileList.length; i++) {
             console.log(fileList[i].name)
         }
-      });
-    function importFile(){
-        var input =  document.getElementById("input").files;
-        for (var i = 0; i < input.length; i++)
-        {
-        console.log(input[i].name);
+    });
+    function importFile() {
+        var input = document.getElementById("input").files;
+        for (var i = 0; i < input.length; i++) {
+            console.log(input[i].name);
         }
     }
 
 </script>
+
 </html>
