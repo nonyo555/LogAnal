@@ -5,7 +5,7 @@
 		$uri = 'http://';
 	}
 	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/phpvscode/index.htm');
+	header('Location: '.$uri.'/phpvscode/index.php');
 	exit;
 ?>
 Something is wrong with the XAMPP installation :-(
