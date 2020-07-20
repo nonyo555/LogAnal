@@ -7,7 +7,23 @@
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <link href="table.css" media="all" rel="Stylesheet" type="text/css" />
     <script>
-        
+        var building_names = [
+        <?php 
+            $hostname = "localhost";
+            $username = "test";
+            $password = "pogfLUYGtHCVS8Bq";
+            $db = "log_analytics";
+
+            $mysqli = new mysqli($hostname,$username,$password,$db);
+            $stmt = $mysqli->prepare("SELECT building_name FROM buildinglist");
+            $stmt->execute();
+            $res = $stmt->get_result();
+            while ($row = $res->fetch_assoc()) {
+                $building_name = $row["building_name"];
+                echo "'$building_name',";
+            }
+        ?>
+    ];
     </script>
 </head>
 
@@ -34,17 +50,19 @@
                     $password = "pogfLUYGtHCVS8Bq";
                     $db = "log_analytics";
 
-                    $dbconnect = mysqli_connect($hostname,$username,$password,$db);
-
-                    if ($dbconnect->connect_error){
-                        die("Database connection failed: " . $dbconnect->connect_error);
+                    $mysqli = new mysqli($hostname,$username,$password,$db);
+                    if($mysqli->connect_error){
+                        die("Database connection failed: " . $mysqli->connect_error);
                     }
 
                     $buildingname = $_POST['building'];
                     echo "<h2>" . $buildingname . "</h2>"; 
 
-                    $query = mysqli_query($dbconnect, "SELECT * FROM buildinglist WHERE building_name='{$id}'")
-                        or die (mysqli_error($dbconnect));
+                    $stmt = $mysqli->prepare("SELECT * FROM buildinglist WHERE building_name = ?");
+                    $stmt->bind_param("s",$buildingname);
+
+                    $stmt->execute();
+                    $res = $stmt->get_result();
 
                     echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 90%;\" >
                     <span onscroll=\"\">";
@@ -56,7 +74,7 @@
                       <th>building_name</th>
                       <th>IPclient</th>
                     </tr>";
-                    while ($row = mysqli_fetch_array($query)){
+                    while ($row = $res->fetch_assoc()){
                         echo
                         "<tr>
                         <td>{$row['building_code']}</td>
@@ -177,7 +195,6 @@
         });
     }
     
-    var building_names = ['ตึกใหม่ข้างโรงอาหาร', 'อาคารพระเทพ A', 'โรงเรียนสาธิต'];
     autocomplete(document.getElementById("myInput"), building_names);
 </script>
 </html>
