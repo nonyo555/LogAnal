@@ -1,49 +1,54 @@
 <html>
 <head>
     <title>KMITL Log Analytics - Graph</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
-</head>
-<body>
+  </head>
+<body onload = 'initialize()'>
     <div class='head_main'>
-        <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
+        <a href="../phpvscode/index.htm"><img src="../img/header.png"></a>
     </div>
     <div class='sub_main'>
         <label class='sub'>Top-problem</label>
     </div>
     <div class='body_main' id ='bname'>
+      
         <h2>Graph Page</h2>
         <div style="text-align: center;" >
         <div class = inline  >
         <label class = 'gtext'>Building Name:</label>
         <div class="custom-select" >
-        <select >
-            <option class = 'sel_text' value="0">Volvo</option>
-            <option class = 'sel_text' value="1">Saab</option>
-            <option class = 'sel_text' value="2">Mercedes</option>
-            <option class = 'sel_text' value="3">Audi</option>
-          </select>
+        <select id = 'BD_name'  onfocus="this.size=5;" style=" width: 90%;"  > 
+            <option class = 'sel_text' value="Ecc">Ecc</option>
+        </select>
+        </div>
+        <div class="custom-select" >
+        <select id = 'BD_name2'  onfocus='this.size=5;' style=" width: 90%;"  > 
+            <option class = 'sel_text' value="None">ไม่เลือก</option>
+        </select>
         </div>
         </div>
         <div class = inline  >
         <label class = 'gtext'>Graph Type:</label>
         <div class="custom-select" id='type'>
-        <select name="G_type" >
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+        <select name="G_type"  id = "G_type" >
+            <option value='Population'>Population</option>
+            <option value="Bandwidth">Bandwidth</option>
+        </select>
         </div>
         </div>
     </div>
         <div class = time >
             <label class = 'gtext'>Time</label>
-            <input class = 'time_start'  type = 'datetime-local'/>
+            <input id = 'time_start'  class = 'time_start'  type = 'datetime-local'/>
             <label class = 'text'> : </label>
-            <input class = 'time_stop' placeholder = 'Stop'  type = 'datetime-local'/>
+            <input id = 'time_stop' class = 'time_stop' placeholder = 'Stop'  type = 'datetime-local'/>
+            <button class = 'search-bt' id = cf_button onclick = 'makeGraph()'>Change Time</button>
     </div>
     <div class = 'graphs'>
-        <img  src="../img/graph_example.png" width="95%">
+      <canvas id="canvas" style=" width: 1200px;  height: 600px; position: relative; color:blue;" ></canvas>
     </div>
 
     <div class='tail_main'>
@@ -53,7 +58,225 @@
     </div>
 
 </body>
+<script >
+  async function initialize(){
+    // setting time
+    var today = new Date();
+    var yesterday = new Date();
+    today.setUTCHours(18)
+    yesterday.setUTCHours(-6)
+    var yester =  yesterday.toISOString().slice(0,16); 
+    var dateTime = today.toISOString().slice(0,16);
+    document.getElementById("time_stop").defaultValue = dateTime;
+    document.getElementById("time_stop").max = dateTime;
+    document.getElementById("time_start").defaultValue = yester;
+    document.getElementById("time_start").max = dateTime;
+    // makeSelector_Building_Name
+      file = 'building_Name.txt'
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET", file, false);
+      rawFile.onreadystatechange = async function ()
+      {
+          if(rawFile.readyState === 4)
+          {
+              if(rawFile.status === 200 || rawFile.status == 0)
+              {
+                  var allText = await rawFile.responseText.split('\n');
+                  for (var i = 0;i<allText.length;i++){
+                    document.getElementById("BD_name").innerHTML += ' <option class = \'sel_text\' value= \''+allText[i]+'\'>'+allText[i]+'</option>\n'
+                    document.getElementById("BD_name2").innerHTML += ' <option class = \'sel_text\' value= \''+allText[i]+'\'>'+allText[i]+'</option>\n'
+                  }
+                  makedropdown();
+                 // console.log( document.getElementById("BD_name").innerHTML)
+              }
+          }
+      }
+    rawFile.send(null);
+
+
+    // makeGraph
+    function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+    }
+    var data = [];
+    var start =document.getElementById("time_start").value
+    var stop = document.getElementById("time_stop").value
+    var building = document.getElementById('BD_name').value
+    for(var i = 0 ; i<500;i+=5){
+      var now = new moment()
+      data.push({x:getRandomInt(17415904)+1577836801,y:i});                              
+    }
+    var datatest = [];
+    await jQuery.ajax({
+    type: "POST",
+    url: 'queryfunc.php',
+    dataType: 'json',
+    data: {functionname: 'scatterquery',arguement:[start,stop,building]},
+    success: function (obj) {
+      datatest= obj;
+            },
+    error: function(){
+        alert("Db is Error")
+    }
+    });
+
+    var color = Chart.helpers.color;
+    var scatterChartData = {
+      datasets: [{
+        borderColor: 'red',
+        backgroundColor: color('orange').alpha(0.5).rgbString(),
+        label: 'Ecc',
+        //type: 'line',
+      }]
+    };
+    scatterChartData.datasets[0]['data'] = data;
+      var ctx = document.getElementById('canvas').getContext('2d');
+      window.myScatter = Chart.Scatter(ctx, {
+        data: scatterChartData,
+        options: {
+          hovermode:'index',
+          responsive:true,
+          stacked:'false',
+          legend: {
+            labels: {
+                fontColor: "black",
+                fontSize: 18
+            }
+        },
+          title: {
+            display: true,
+            text: 'อาคาร ECC'
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                userCallback: function(tick) {
+                    return moment(tick*1000).format(" MMMM Do YYYY ");
+                },
+                max: 1595252705,
+                min: 1577836801,
+                minRotation	: 50,
+                fontColor: "black",
+                fontSize: 12
+              },
+            }],
+            yAxes: [{
+              type: 'linear',
+              ticks: {
+                userCallback: function(tick) {
+                  return tick.toString() + 'คน';
+                },
+                fontColor: "black",
+              },
+              scaleLabel: {
+                labelString: 'Number of People',
+              //  display: true
+              }
+            }]
+          },
+          tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var label = moment(tooltipItem.xLabel*1000).format("dddd, MMMM Do YYYY HH:MM:SS");
+                    if (label) {
+                        label += ': ';
+                    }
+                    label +=  Math.round(tooltipItem.yLabel * 100) / 100;
+                    label += 'คน'
+                    return label;
+                },
+            }
+            },
+        }
+
+      });
+  }
+  //    
+  async function makeGraph(){
+    var fname= '';
+    var data = [];
+    var arguements = [];
+    var building = document.getElementById("BD_name").value;
+    var building2 = document.getElementById("BD_name2").value;
+    var start = document.getElementById("time_start").value 
+    var stop = document.getElementById("time_stop").value
+    var type = 1;
+    if ( document.getElementById("G_type").value == 'Bandwidth'){
+        type  = 2;
+    }
+
+    await jQuery.ajax({
+    type: "POST",
+    url: 'queryfunc.php',
+    dataType: 'json',
+    data: {functionname: 'scatterquery',arguement: [start,stop,building]},
+    success: function (obj) {
+        data = obj;
+        console.log(data);
+            },
+    error: function(){
+        alert("Db is Error")
+    }
+    });
+    if (data.length != 0){
+    var datasets = [];
+    for (var i = 0 ; i<data.length;i++){
+      datasets.push({x:moment(data[i][0]).format('X'),y:data[i][type]})
+    }
+
+    
+    
+    window.myScatter.data.datasets[0]['label'] =building;
+    window.myScatter.options.title['text'] = building;
+    window.myScatter.data.datasets[0]['data'] = datasets;
+
+
+    var data2 = [];
+    var datasets2 = [];
+    if (window.myScatter.data.datasets.length == 2){
+      window.myScatter.data.datasets.pop()
+    }
+    if(building2 != 'None' && building != building2){
+        await jQuery.ajax({
+        type: "POST",
+        url: 'queryfunc.php',
+        dataType: 'json',
+        data: {functionname: 'scatterquery',arguement: [start,stop,'Ecc']},
+        success: function (obj) {
+            data2 = obj;
+            console.log('/////')
+            console.log(data2);
+                },
+        error: function(){
+            alert("Db is Error")
+        }
+        });
+        for (var i = 0 ; i<data2.length;i++){
+        datasets2.push({x:moment(data2[i][0]).format('X'),y:data2[i][type]})
+        }
+        var color = Chart.helpers.color;
+        var scatterChartData2 = 
+        {
+        borderColor: 'blue',
+        backgroundColor: color('blue').alpha(0.5).rgbString(),
+        label: building2,
+        data: datasets2
+          }
+       ;
+        window.myScatter.data.datasets.push(scatterChartData2)
+        window.myScatter.options.title['text'] += '  และ  '  
+        window.myScatter.options.title['text'] += building2
+    }
+    window.myScatter.update();
+    }
+    else{
+      alert('No data in this time period' )
+    }
+  }
+
+</script>
 <script>
+  function makedropdown(){
     var x, i, j, l, ll, selElmnt, a, b, c;
     /*look for any elements with the class "custom-select":*/
     x = document.getElementsByClassName("custom-select");
@@ -69,7 +292,7 @@
       /*for each element, create a new DIV that will contain the option list:*/
       b = document.createElement("DIV");
       b.setAttribute("class", "select-items select-hide");
-      for (j = 1; j < ll; j++) {
+      for (j = 0; j < ll; j++) {
         /*for each option in the original select element,
         create a new DIV that will act as an option item:*/
         c = document.createElement("DIV");
@@ -129,8 +352,8 @@
         }
       }
     }
-    /*if the user clicks anywhere outside the select box,
-    then close all select boxes:*/
     document.addEventListener("click", closeAllSelect);
-    </script>
+  }
+</script>
+
 </html>
