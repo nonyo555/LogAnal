@@ -170,7 +170,7 @@ body {
   /*style items (options):*/
   .select-items {
     position: absolute;
-    background-color: red;
+    background-color: white;
     top: 100%;
     left: 0;
     right: 0;
