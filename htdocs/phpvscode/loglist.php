@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
-    <script>
+    <script>/*
         var jsondata;
         async function callAPI() {
             //handshaking and get first set of data
@@ -64,12 +64,10 @@
             el.innerHTML = ""; 
             el.appendChild(table); 
         }    
-
+*/
         function validateForm(){
             var startInput = document.forms["inputForm"]["start"].value;
             var stopInput = document.forms["inputForm"]["stop"].value;
-            //alert("start : "+ startInput);
-            //alert("stop : " + stopInput);
             if(startInput != "" && stopInput == ""){
                 var today = new Date();
                 var year = today.getFullYear();
@@ -78,9 +76,7 @@
                 var hour = today.getHours() > 9 ? today.getHours() : '0'+today.Hours();
                 var minute = today.getMinutes() > 9 ? today.getMinutes() : '0'+today.Minutes();
                 var dateTime = year + '-' + month + '-' + date + 'T' + hour + ':' + minute;
-                //alert("Date : " + dateTime);
                 document.getElementById("stop").value = dateTime;
-                //alert(document.getElementById("stop").value);
             }
             else if(startInput == "" && stopInput != ""){
                 alert("Please input start date");
@@ -106,13 +102,13 @@
         <form name="inputForm" autocomplete="off" action="" onsubmit="return validateForm()" method="post">
             <div class=time>
                 <label class='gtext'>Time</label>
-                <input id="start" name="start" class='time_start' placeholder='Start' type='datetime-local'/>
+                <input id="start" name="start" class='time_start' placeholder='Start' type='datetime-local' value="<?php echo isset($_POST['start']) ? $_POST['start'] : '' ?>"/>
                 <label class='text'> : </label>
-                <input id="stop" name="stop" class='time_stop' placeholder='Stop' type='datetime-local' />
+                <input id="stop" name="stop" class='time_stop' placeholder='Stop' type='datetime-local' value="<?php echo isset($_POST['stop']) ? $_POST['stop'] : '' ?>" />
             </div>
             <div style="text-align: center;">
                 <div class='search' style="display: inline;">
-                    <input type ="text" name="userID" id="search-id" type='search-bar' placeholder='Search by userID' />
+                    <input type ="text" name="userID" id="search-id" type='search-bar' placeholder='Search by userID' value="<?php echo isset($_POST['userID']) ? $_POST['userID'] : '' ?>"/>
                     <button type="submit" class='search-bt'>Search</button>
                 </div>
             </div>
@@ -125,43 +121,56 @@
                     $password = "pogfLUYGtHCVS8Bq";
                     $db = "log_analytics";
 
-                    
-                    $dbconnect = mysqli_connect($hostname,$username,$password,$db);
-
-                    if ($dbconnect->connect_error){
-                        die("Database connection failed: " . $dbconnect->connect_error);
+                    $mysqli = new mysqli($hostname,$username,$password,$db);
+                    if($mysqli->connect_error){
+                        die("Database connection failed: " . $mysqli->connect_error);
                     }
                     
                     if($userID == ""){
                         if($start == "" && $stop ==""){
-                            $query = mysqli_query($dbconnect, "SELECT * FROM loglist")
-                            or die (mysqli_error($dbconnect));
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist")
+                            //or die (mysqli_error($dbconnect));
+                            $stmt = $mysqli->prepare("SELECT * FROM loglist");
                         }
                         else if($start != "" && $stop !=""){
                             list($startdate,$starttime) = explode('T',$start);
                             list($stopdate,$stoptime) = explode('T',$stop);
                             $startdate .= " ".$starttime.':00';
                             $stopdate .= " ".$stoptime. ":00";
-                            $query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
-                            or die (mysqli_error($dbconnect));
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
+                            //or die (mysqli_error($dbconnect));
+
+                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE time >= ? AND time <= ?");
+
+                            $stmt->bind_param("ss",$startdate,$stopdate);
                         }
                     }
                     else{
                         if($start == "" && $stop == ""){
-                            $query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}'")
-                            or die (mysqli_error($dbconnect));
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}'")
+                            //or die (mysqli_error($dbconnect));
+
+                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE userID = ?");
+
+                            $stmt->bind_param("s",$userID);
                         }
-                        else if($start != "" && $stop !=""){
+                        else if($start != "" && $stop != ""){
                             list($startdate,$starttime) = explode('T',$start);
                             list($stopdate,$stoptime) = explode('T',$stop);
                             $startdate .= " ".$starttime.':00';
                             $stopdate .= " ".$stoptime. ":00";
-                            $query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
-                            or die (mysqli_error($dbconnect));
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
+                            //or die (mysqli_error($dbconnect));
+
+                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE userID = ? AND time >= ? AND time <= ?");
+
+                            $stmt->bind_param("sss",$userID,$startdate,$stopdate);
                         }
                     }
 
-                    
+                    $stmt->execute();
+                    $res = $stmt->get_result();
+
                     echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 90%;\" >
                     <span onscroll=\"\">";
                     echo "<table border=\"1\" align=\"center\">
@@ -173,7 +182,7 @@
                       <th>IPaddress</th>
                       <th>speed</th>
                     </tr>";
-                        while ($row = mysqli_fetch_array($query)){
+                        while ($row = $res->fetch_assoc()){
                         echo
                         "<tr>
                         <td>{$row['time']}</td>

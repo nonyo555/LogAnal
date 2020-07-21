@@ -1,25 +1,29 @@
 <html>
+<script></script>
 <?php
 $hostname = "localhost";
 $username = "root";
 $password = "1439";
 $db = "phpserver";
 
-$dbconnect=mysqli_connect($hostname,$username,$password,$db);
-if ($dbconnect->connect_error) {
+$mysqli = new mysqli($hostname,$username,$password,$db);
+if ($mysqli->connect_error) {
   die("Database connection failed: " . $dbconnect->connect_error);
 }
 
-$sql = "SELECT * FROM b WHERE DateTime >= '2020-06-31 12:01:01'";
-$result = mysqli_query($dbconnect,$sql);
+$stmt = $mysqli->prepare("SELECT * FROM b");
+$stmt->execute();
+$result = $stmt->get_result();
+//$sql = "SELECT * FROM bdinterval";
+//$result = mysqli_query($dbconnect,$sql);
 $firstname = [];
 $number = [];
 while ($row = mysqli_fetch_array($result)) {
     array_push($firstname,$row[1]);
     array_push($number,[$row[2],$row[3]]);
 }
-
 ?>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>KMITL Log Analytics - Map</title>.
@@ -29,23 +33,61 @@ while ($row = mysqli_fetch_array($result)) {
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChO4HEq1x-dXtFFcfCuOHdog9jl6HITdE"></script>
-</head>
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
  <!-- Make sure you put this AFTER Leaflet's CSS -->
- <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin=""></script>
+</head>
+
+
+
 <body onload ='initalize()'>
     <div class='head_main'>
-        <a href="../phpvscode/index.htm"><img src="../img/header.png"></a>
+        <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
-        <div class = time  style="margin-top: 30px;">
-            <label class = 'gtext'>Time</label>
-            <input name = 'time_start'   id ='time_start'  class = 'time_start'  type = 'datetime-local'/>
-            <label class = 'text'> : </label>
-            <input  name = 'time_stop'  id ='time_stop' class = 'time_stop' type = 'datetime-local' />
-            <button class = 'search-bt' id = cf_button onclick = 'changedate()'>Change Time</button>
+        <div class = time  style="padding-top:30px; height:120px">
+            <table align="center">
+                <tr valign="top">
+                    <td> <label class = 'gtext'>Time</label></td>
+                    <td> <input name = 'time_start'   id ='time_start'  class = 'time_start'  type = 'date'/> </td>
+                    <td> <label class = 'text'> : </label> </td> 
+                    <td>
+                        <div style="width:200px;padding-left:20px;padding-right:20px;height: 120px">
+                            <select class="form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                                <option>00:00</option>
+                                <option>01:00</option>
+                                <option>02:00</option>
+                                <option>03:00</option>
+                                <option>04:00</option>
+                                <option>05:00</option>
+                                <option>06:00</option>
+                                <option>07:00</option>
+                                <option>08:00</option>
+                                <option>09:00</option>
+                                <option>10:00</option>
+                                <option>11:00</option>
+                                <option>12:00</option>
+                                <option>13:00</option>
+                                <option>14:00</option>
+                                <option>15:00</option>
+                                <option>16:00</option>
+                                <option>17:00</option>
+                                <option>18:00</option>
+                                <option>19:00</option>
+                                <option>20:00</option>
+                                <option>21:00</option>
+                                <option>22:00</option>
+                                <option>23:00</option>
+                            </select>
+                        </div>
+                </td>
+                <td> <button class = 'search-bt' id = cf_button onclick = 'changedate()'>view</button></td> 
+            </tr>
+        </table>  
     </div>
+
     <div class='body_main'>
         <div id="mapid"  style=" height: 100%;"></div>
         <!-- <div id="capture"></div> -->
@@ -54,6 +96,7 @@ while ($row = mysqli_fetch_array($result)) {
 </body>
 
 </html>
+
 <script>
     function initalize(){
         var today = new Date();
