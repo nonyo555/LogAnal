@@ -128,41 +128,47 @@
                     
                     if($userID == ""){
                         if($start == "" && $stop ==""){
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist")
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2")
                             //or die (mysqli_error($dbconnect));
-                            $stmt = $mysqli->prepare("SELECT * FROM loglist");
+                            $stmt = $mysqli->prepare("SELECT * FROM book2");
                         }
                         else if($start != "" && $stop !=""){
-                            list($startdate,$starttime) = explode('T',$start);
+                            /*list($startdate,$starttime) = explode('T',$start);
                             list($stopdate,$stoptime) = explode('T',$stop);
                             $startdate .= " ".$starttime.':00';
-                            $stopdate .= " ".$stoptime. ":00";
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
+                            $stopdate .= " ".$stoptime. ":00";*/
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
                             //or die (mysqli_error($dbconnect));
 
-                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE time >= ? AND time <= ?");
+                            $startdate = date('n/j/Y G:i',strtotime($start));
+                            $stopdate = date('n/j/Y G:i',strtotime($stop));
+
+                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE time >= ? AND time <= ?");
 
                             $stmt->bind_param("ss",$startdate,$stopdate);
                         }
                     }
                     else{
                         if($start == "" && $stop == ""){
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}'")
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}'")
                             //or die (mysqli_error($dbconnect));
 
-                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE userID = ?");
+                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ?");
 
                             $stmt->bind_param("s",$userID);
                         }
                         else if($start != "" && $stop != ""){
-                            list($startdate,$starttime) = explode('T',$start);
+                            /*list($startdate,$starttime) = explode('T',$start);
                             list($stopdate,$stoptime) = explode('T',$stop);
                             $startdate .= " ".$starttime.':00';
-                            $stopdate .= " ".$stoptime. ":00";
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM loglist WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
+                            $stopdate .= " ".$stoptime. ":00";*/
+                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
                             //or die (mysqli_error($dbconnect));
 
-                            $stmt = $mysqli->prepare("SELECT * FROM loglist WHERE userID = ? AND time >= ? AND time <= ?");
+                            $startdate = date('n/j/Y G:i',strtotime($start));
+                            $stopdate = date('n/j/Y G:i',strtotime($stop));
+
+                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ? AND time >= ? AND time <= ?");
 
                             $stmt->bind_param("sss",$userID,$startdate,$stopdate);
                         }
@@ -171,26 +177,26 @@
                     $stmt->execute();
                     $res = $stmt->get_result();
 
-                    echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 90%;\" >
+                    echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 98%;\" >
                     <span onscroll=\"\">";
                     echo "<table border=\"1\" align=\"center\">
                     <tr>
                       <th>time</th>
-                      <th>userStatus</th>
                       <th>userID</th>
-                      <th>platform</th>
-                      <th>IPaddress</th>
-                      <th>speed</th>
+                      <th>AP</th>
+                      <th>Bdcode</th>
+                      <th>Bdname</th>
+                      <th>Floor</th>
                     </tr>";
                         while ($row = $res->fetch_assoc()){
                         echo
                         "<tr>
                         <td>{$row['time']}</td>
-                        <td>{$row['userStatus']}</td>
                         <td>{$row['userID']}</td>
-                        <td>{$row['platform']}</td>
-                        <td>{$row['IPaddress']}</td>
-                        <td>{$row['speed']}</td>
+                        <td>{$row['AP']}</td>
+                        <td>{$row['Bdcode']}</td>
+                        <td>{$row['BdName']}</td>
+                        <td>{$row['Floor']}</td>
                         </tr>\n";
                     
                     }

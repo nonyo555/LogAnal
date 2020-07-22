@@ -8,7 +8,7 @@
   </head>
 <body onload = 'initialize()'>
     <div class='head_main'>
-        <a href="../phpvscode/index.htm"><img src="../img/header.png"></a>
+        <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
     <div class='sub_main'>
         <label class='sub'>Top-problem</label>
