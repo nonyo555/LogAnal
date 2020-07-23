@@ -4,62 +4,68 @@
     <title>KMITL Log Analytics</title>
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
     <script>
-        function createChart() {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                        label: 'Example Graph',
-                        data: [12, 19, 3, 5, 2, 3, 15, 4, 7, 21, 30, 1],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.8)',
-                            'rgba(54, 162, 235, 0.8)',
-                            'rgba(255, 206, 86, 0.8)',
-                            'rgba(75, 192, 192, 0.8)',
-                            'rgba(153, 102, 255, 0.8)',
-                            'rgba(255, 159, 64, 0.8)',
-                            'rgba(255, 99, 132, 0.8)',
-                            'rgba(54, 162, 235, 0.8)',
-                            'rgba(255, 206, 86, 0.8)',
-                            'rgba(75, 192, 192, 0.8)',
-                            'rgba(153, 102, 255, 0.8)',
-                            'rgba(255, 159, 64, 0.8)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    },
-                    responsive: false
-                }
-            });
-        }
+        $(document).ready(function() {
+            createChart();
+        })
 
+        async function createChart() {
+            await jQuery.ajax({
+                type: "POST",
+                url: 'queryfunc.php',
+                dataType: 'json',
+                data: {functionname: 'indexbarquery'},
+                success: function (data) {
+                    console.log(data);
+                    var date = [];
+                    var usage = [];
+
+                    for(var i in data){
+                        date.push(data[i][0].split(' ')[0]);
+                        usage.push(data[i][1]);
+                    }
+
+                    var chartdata = {
+                        labels: date,
+                        datasets: [
+                            {
+                                label: 'Users',
+                                backgroundColor: '#49e2ff',
+                                borderColor: '#46d5f1',
+                                hoverBackgroundColor: '#CCCCCC',
+                                hoverBorderColor: '#666666',
+                                data: usage
+                            }
+                        ]
+                    }
+
+                    var graphTarget = $("#myChart");
+
+                    var barGraph = new Chart(graphTarget, {
+                        type: 'bar',
+                        data: chartdata,
+                        options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    steps: 10,
+                                    stepValue: 6,
+                                }
+                            }]
+                        }
+                    }
+                    });
+                },
+                error: function(){
+                    alert("Error")
+                }
+            })
+        }
+/*
         function callAPI() {
             //handshaking and get first set of data
             var jsondata;
@@ -81,11 +87,11 @@
                 jsondata = data;
                 console.log("updated data");
             })
-        }
+        }*/
     </script>
 </head>
 
-<body onload="callAPI(); createChart();">
+<body onload="">
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
@@ -115,8 +121,11 @@
                 <td width="80%" height="100%" valign="top">
                     <!--span class='graph'> .......</span-->
                     <br><br>
-                    <h2>Graph name 1</h2>
-                    <canvas id="myChart" width="900" height="700" style="position: absolute; z-index: 1000;"></canvas>
+                    <h2>จำนวนผู้ใช้งานระบบในตึก ECC</h2>
+                    <div class="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    
                 </td>
             </tr>
             <tr width="100%"></tr>

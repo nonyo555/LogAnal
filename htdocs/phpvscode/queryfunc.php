@@ -39,4 +39,32 @@
         }
         echo json_encode($dataset);
     }
+    else if ($_POST['functionname'] == 'indexbarquery'){
+        $hostname = "localhost";
+        $username = "test";
+        $password = "pogfLUYGtHCVS8Bq";
+        $db = "log_analytics";
+
+        $bdName = "อาคาร ECC";
+        date_default_timezone_set('Asia/Bangkok');
+        $stopdate = date('Y-m-d',time()) . " 00:00:00";
+        $startdate = date_sub(date_create($stopdate),date_interval_create_from_date_string("7 days"));
+        $startdate = date_format($startdate,"Y-m-d") . " 00:00:00";
+        $dbconnect=mysqli_connect($hostname,$username,$password,$db);
+        if ($dbconnect->connect_error) {
+        die("Database connection failed: " . $dbconnect->connect_error);
+        }
+
+        $dataset = [];
+        $sql = "SELECT BeginTime, SUM(users) FROM bdinterval WHERE BdName = '$bdName' AND BeginTime >= '$startdate' AND BeginTime < '$stopdate' GROUP BY CAST(BeginTime AS DATE)";
+        $result = mysqli_query($dbconnect,$sql);
+        if (!$result) {
+            printf("Error: %s\n", mysqli_error($dbconnect));
+            exit();
+        }
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($dataset,[$row[0],$row[1]]);
+        }
+        echo json_encode($dataset);
+    }
 ?>

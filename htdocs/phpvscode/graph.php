@@ -98,6 +98,7 @@
     function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
     }
+    
     var data = [];
     var start =document.getElementById("time_start").value
     var stop = document.getElementById("time_stop").value
