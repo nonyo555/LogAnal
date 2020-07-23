@@ -15,11 +15,11 @@
             $db = "log_analytics";
 
             $mysqli = new mysqli($hostname,$username,$password,$db);
-            $stmt = $mysqli->prepare("SELECT building_name FROM buildinglist");
+            $stmt = $mysqli->prepare("SELECT BuildingName FROM buildingcsv");
             $stmt->execute();
             $res = $stmt->get_result();
             while ($row = $res->fetch_assoc()) {
-                $building_name = $row["building_name"];
+                $building_name = $row["BuildingName"];
                 echo "'$building_name',";
             }
         ?>
@@ -58,7 +58,7 @@
                     $buildingname = $_POST['building'];
                     echo "<h2>" . $buildingname . "</h2>"; 
 
-                    $stmt = $mysqli->prepare("SELECT * FROM buildinglist WHERE building_name = ?");
+                    $stmt = $mysqli->prepare("SELECT * FROM buildingcsv WHERE buildingName = ?");
                     $stmt->bind_param("s",$buildingname);
 
                     $stmt->execute();
@@ -70,18 +70,41 @@
                     
                     echo "<table border=\"1\" align=\"center\">
                     <tr>
-                      <th>building_code</th>
-                      <th>building_name</th>
-                      <th>IPclient</th>
+                      <th>BuildingCode</th>
+                      <th>BuildingName</th>
+                      <th>IPClient</th>
+                    </tr>";
+                    while ($row = $res->fetch_assoc()){
+                        $bdCode = '%' . $row['BuildingCode'] .'%';
+                        $bdCode = str_replace('-', '', $bdCode);
+                        echo
+                        "<tr>
+                        <td>{$row['BuildingCode']}</td>
+                        <td>{$row['BuildingName']}</td>
+                        <td>{$row['IPClient']}</td>
+                        </tr>\n";
+
+                    }
+
+                    $stmt = $mysqli->prepare("SELECT * FROM apmac WHERE Name LIKE ?");
+                    $stmt->bind_param("s",$bdCode);
+
+                    $stmt->execute();
+                    $res = $stmt->get_result();
+
+                    echo "<table border=\"1\" align=\"center\">
+                    <tr>
+                      <th>AP</th>
+                      <th>MAC</th>
                     </tr>";
                     while ($row = $res->fetch_assoc()){
                         echo
                         "<tr>
-                        <td>{$row['building_code']}</td>
-                        <td>{$row['building_name']}</td>
-                        <td>{$row['IPclient']}</td>
+                        <td>{$row['Name']}</td>
+                        <td>{$row['MAC']}</td>
                         </tr>\n";
                     }
+
                     echo "</span>
                 </div>";
             }
@@ -111,6 +134,7 @@
             a = document.createElement("DIV");
             a.setAttribute("id", this.id + "autocomplete-list");
             a.setAttribute("class", "autocomplete-items");
+            a.setAttribute("style", "height: 200px; overflow-x: hidden; overflow-y: auto; ")
             /*append the DIV element as a child of the autocomplete container:*/
             this.parentNode.appendChild(a);
             /*for each item in the array...*/
@@ -119,7 +143,7 @@
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                     /*create a DIV element for each matching element:*/
                     b = document.createElement("DIV");
-                    b.setAttribute("style","text-align:left")
+                    b.setAttribute("style","text-align:left;")
                     /*make the matching letters bold:*/
                     b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
                     b.innerHTML += arr[i].substr(val.length);
