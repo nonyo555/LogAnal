@@ -21,7 +21,7 @@
         <label class = 'gtext'>Building Name:</label>
         <div class="custom-select" >
         <select id = 'BD_name'  onfocus="this.size=5;" style=" width: 90%;"  > 
-            <option class = 'sel_text' value="Ecc">Ecc</option>
+            
         </select>
         </div>
         <div class="custom-select" >
@@ -92,8 +92,6 @@
           }
       }
     rawFile.send(null);
-
-
     // makeGraph
     function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -102,34 +100,34 @@
     var start =document.getElementById("time_start").value
     var stop = document.getElementById("time_stop").value
     var building = document.getElementById('BD_name').value
-    for(var i = 0 ; i<500;i+=5){
-      var now = new moment()
-      data.push({x:getRandomInt(17415904)+1577836801,y:i});                              
-    }
-    var datatest = [];
+
     await jQuery.ajax({
     type: "POST",
     url: 'queryfunc.php',
     dataType: 'json',
-    data: {functionname: 'scatterquery',arguement:[start,stop,building]},
+    data: {functionname: 'scatterquerybw',arguement:[start,stop,'อาคาร ECC']},
     success: function (obj) {
-      datatest= obj;
+      data= obj;
+      console.log(obj)
             },
     error: function(){
         alert("Db is Error")
     }
     });
-
+    var datasets = [];
+    for (var i = 0 ; i<data.length;i++){
+      datasets.push({x:moment(data[i][0]).format('X'),y:data[i][1]})
+    }
     var color = Chart.helpers.color;
     var scatterChartData = {
       datasets: [{
         borderColor: 'red',
         backgroundColor: color('orange').alpha(0.5).rgbString(),
-        label: 'Ecc',
+        label: 'อาคาร ECC',
         //type: 'line',
       }]
     };
-    scatterChartData.datasets[0]['data'] = data;
+    scatterChartData.datasets[0]['data'] = datasets;
       var ctx = document.getElementById('canvas').getContext('2d');
       window.myScatter = Chart.Scatter(ctx, {
         data: scatterChartData,
@@ -151,10 +149,8 @@
             xAxes: [{
               ticks: {
                 userCallback: function(tick) {
-                    return moment(tick*1000).format(" MMMM Do YYYY ");
+                    return moment(tick*1000).format(" MMMM Do YYYY HH:MM:SS");
                 },
-                max: 1595252705,
-                min: 1577836801,
                 minRotation	: 50,
                 fontColor: "black",
                 fontSize: 12
@@ -177,7 +173,8 @@
           tooltips: {
             callbacks: {
                 label: function(tooltipItem, data) {
-                    var label = moment(tooltipItem.xLabel*1000).format("dddd, MMMM Do YYYY HH:MM:SS");
+                  var label = moment(tooltipItem.xLabel*1000).format("dddd, MMMM Do YYYY HH:MM:SS");
+                    label +=  moment((tooltipItem.xLabel+3600)*1000).format( " - HH:MM:SS");
                     if (label) {
                         label += ': ';
                     }
@@ -200,36 +197,55 @@
     var building2 = document.getElementById("BD_name2").value;
     var start = document.getElementById("time_start").value 
     var stop = document.getElementById("time_stop").value
-    var type = 1;
+    var type = 'scatterquerycn';
+    window.myScatter.options.tooltips.callbacks.label = function(tooltipItem, data) {
+                    var label = moment(tooltipItem.xLabel*1000).format("dddd, MMMM Do YYYY HH:MM:SS");
+                    label +=  moment((tooltipItem.xLabel+3600)*1000).format( " - HH:MM:SS");
+                    if (label) {
+                        label += ': ';
+                    }
+                    label +=  Math.round(tooltipItem.yLabel * 100) / 100;
+                    label += 'คน'
+                    return label;
+                }
+    window.myScatter.options.scales.yAxes[0].ticks.userCallback = function(tick) {
+                  return tick.toString() + 'คน';
+                }
     if ( document.getElementById("G_type").value == 'Bandwidth'){
-        type  = 2;
+        type  = 'scatterquerybw';
+        window.myScatter.options.tooltips.callbacks.label = function(tooltipItem, data) {
+                    var label = moment(tooltipItem.xLabel*1000).format("dddd, MMMM Do YYYY HH:MM:SS");
+                    if (label) {
+                        label += ': ';
+                    }
+                    label +=  Math.round(tooltipItem.yLabel * 100) / 100;
+                    label += 'Mbs'
+                    return label;
+                }
+        window.myScatter.options.scales.yAxes[0].ticks.userCallback = function(tick) {
+                  return tick.toString() + 'Mbs';
+                }
     }
-
     await jQuery.ajax({
     type: "POST",
     url: 'queryfunc.php',
     dataType: 'json',
-    data: {functionname: 'scatterquery',arguement: [start,stop,building]},
+    data: {functionname: type ,arguement: [start,stop,building.replace('\n','')]},
     success: function (obj) {
         data = obj;
-        console.log(data);
             },
     error: function(){
         alert("Db is Error")
     }
     });
-    if (data.length != 0){
+
     var datasets = [];
     for (var i = 0 ; i<data.length;i++){
-      datasets.push({x:moment(data[i][0]).format('X'),y:data[i][type]})
+      datasets.push({x:moment(data[i][0]).format('X'),y:data[i][1]})
     }
-
-    
-    
     window.myScatter.data.datasets[0]['label'] =building;
     window.myScatter.options.title['text'] = building;
     window.myScatter.data.datasets[0]['data'] = datasets;
-
 
     var data2 = [];
     var datasets2 = [];
@@ -241,18 +257,16 @@
         type: "POST",
         url: 'queryfunc.php',
         dataType: 'json',
-        data: {functionname: 'scatterquery',arguement: [start,stop,'Ecc']},
+        data: {functionname: type ,arguement: [start,stop,building2.replace('\n','')]},
         success: function (obj) {
             data2 = obj;
-            console.log('/////')
-            console.log(data2);
                 },
         error: function(){
             alert("Db is Error")
         }
         });
         for (var i = 0 ; i<data2.length;i++){
-        datasets2.push({x:moment(data2[i][0]).format('X'),y:data2[i][type]})
+        datasets2.push({x:moment(data2[i][0]).format('X'),y:data2[i][1]})
         }
         var color = Chart.helpers.color;
         var scatterChartData2 = 
@@ -261,17 +275,13 @@
         backgroundColor: color('blue').alpha(0.5).rgbString(),
         label: building2,
         data: datasets2
-          }
+        }
        ;
         window.myScatter.data.datasets.push(scatterChartData2)
         window.myScatter.options.title['text'] += '  และ  '  
         window.myScatter.options.title['text'] += building2
     }
     window.myScatter.update();
-    }
-    else{
-      alert('No data in this time period' )
-    }
   }
 
 </script>
