@@ -38,7 +38,7 @@
         <h2>Building List Page</h2>
         <form autocomplete="off" action="" method="post">
             <div class="autocomplete" style="width:300px;">
-                <input id="myInput" type="text" name="building" placeholder="ค้นหารายชื่อตึก">
+                <input id="myInput" type="text" name="building" placeholder="ค้นหารายชื่อตึก" value="<?php echo isset($_POST['building']) ? $_POST['building'] : '' ?>">
             </div>
             <input type="submit">
         </form>
