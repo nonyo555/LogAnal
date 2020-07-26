@@ -1,7 +1,6 @@
 <?php
-    if($_POST['functionname'] == 'mapquery'){
+    if($_POST['functionname'] == 'mapquerycn'){
         $start = $_POST['arguement'][0];
-        $stop = $_POST['arguement'][1];
         $hostname = "localhost";
         $username = "root";
         $password = "1439";
@@ -10,13 +9,32 @@
         if ($dbconnect->connect_error) {
         die("Database connection failed: " . $dbconnect->connect_error);
         }
-        $sql = "SELECT * FROM b WHERE DateTime >= '$start' and DateTime < '$stop'";
+        $sql = "SELECT * FROM count WHERE BeginTime = '$start' ";
         $result = mysqli_query($dbconnect,$sql);
         $dict = [];
         while ($row = mysqli_fetch_array($result)) {
-            $dict[$row[1]] = [$row[2],$row[3]];
+            $dict[$row[2]] = [$row[3]];
         }
         echo json_encode($dict);
+    }
+    else if($_POST['functionname'] == 'mapquerybw'){
+        $start = $_POST['arguement'][0];
+        $building = $_POST['arguement'][1];
+        $hostname = "localhost";
+        $username = "root";
+        $password = "1439";
+        $db = "phpserver";
+        $dbconnect=mysqli_connect($hostname,$username,$password,$db);
+        if ($dbconnect->connect_error) {
+        die("Database connection failed: " . $dbconnect->connect_error);
+        }
+        $sql = "SELECT * FROM Bandwidth WHERE  BdName LIKE '%$building%' and time >= '$start' limit 1";
+        $result = mysqli_query($dbconnect,$sql);
+        $band_val = 0 ;
+        while ($row = mysqli_fetch_array($result)) {
+           $band_val = $row[2];
+        }
+        echo json_encode($band_val);
     }
     else if ($_POST['functionname'] == 'scatterquerybw'){
         $start = $_POST['arguement'][0];
