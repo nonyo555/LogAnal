@@ -1,29 +1,5 @@
 <html>
 <script></script>
-<?php
-$hostname = "localhost";
-$username = "root";
-$password = "1439";
-$db = "phpserver";
-
-$mysqli = new mysqli($hostname,$username,$password,$db);
-if ($mysqli->connect_error) {
-  die("Database connection failed: " . $dbconnect->connect_error);
-}
-
-$stmt = $mysqli->prepare("SELECT * FROM b");
-$stmt->execute();
-$result = $stmt->get_result();
-//$sql = "SELECT * FROM bdinterval";
-//$result = mysqli_query($dbconnect,$sql);
-$firstname = [];
-$number = [];
-while ($row = mysqli_fetch_array($result)) {
-    array_push($firstname,$row[1]);
-    array_push($number,[$row[2],$row[3]]);
-}
-?>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>KMITL Log Analytics - Map</title>.
@@ -40,9 +16,6 @@ while ($row = mysqli_fetch_array($result)) {
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
 </head>
-
-
-
 <body onload ='initalize()'>
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
@@ -171,12 +144,12 @@ while ($row = mysqli_fetch_array($result)) {
 {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[100.779705097479,13.7302390134719,3.07674019121489],[100.77970676971,13.7300154986693,3.19812322420355],[100.780132543985,13.730031052739,3.57558880181614],[100.780133900085,13.7301000845203,3.33138085545873],[100.780050291787,13.7301181489363,3.23952642922863],[100.780042956628,13.7302593973759,2.73172759426191],[100.779705097479,13.7302390134719,3.07674019121489]]]},"properties":{"id":"051EDF456014BAD93EF6"}},
 {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[100.7790325631,13.730037570311,2.69310344055186],[100.779524906652,13.7300499539953,3.07161233550478],[100.779506159736,13.7303364836333,2.62806756216767],[100.779362521778,13.730323504774,2.63213230456668],[100.779234800471,13.7302748729865,2.6361970469657],[100.779121312933,13.7302081354745,2.64432653176372],[100.779059228904,13.7301599018491,2.65245601656174],[100.779031084263,13.7301170732181,2.66058550135977],[100.7790325631,13.730037570311,2.69310344055186]]]},"properties":{"id":"0915671AC814BADBAEDE","name":"อาคารจุฬาภรณ์ 2"}}
 ]}
-    L.geoJSON(a, {
-        style: setStyle,
-        onEachFeature: onEachFeature
-    }).addTo(mymap);
+    // L.geoJSON(a, {
+    //     style: setStyle,
+    //     onEachFeature: onEachFeature
+    // }).addTo(mymap);
     var  dict =  {};
-    
+    changedate();
 async function changedate(){
     mymap.eachLayer(function (layer) {
     mymap.removeLayer(layer);
@@ -202,32 +175,13 @@ async function changedate(){
     }
     });
     L.geoJSON(a, {
-        style: setStyle2,
+        style: setStyle,
         onEachFeature: onEachFeature
     }).addTo(mymap);
     }
 
-function setStyle(feature) {
-    var firstname = JSON.parse('<?php echo json_encode($firstname) ?>');
-    var number = JSON.parse('<?php echo json_encode($number) ?>');
-    dict = {};
-    for (var i = 0 ;i<firstname.length;i++){
-        dict[firstname[i]] = number[i];
-    }
-    if (feature.properties['name'] == "ECC" ){
-      if  (dict [feature.properties['name']][0] == 200){
-    return {
-        "color": "#ff7800"
-    }}
-    }
-    else{
-        return {
-            "color": "green"
-        }
-    }
-}
 
-function setStyle2(feature) {
+function setStyle(feature) {
     if (feature.properties['name'] in dict){
         numb= dict[feature.properties['name']]
         if(numb > 100){
@@ -258,6 +212,7 @@ function setStyle2(feature) {
     
 }
 async function onEachFeature(feature, layer) {
+    if (feature.properties['name']  != undefined){
     var bw = 0;
     var start = document.getElementById("time_start").value+" "+document.getElementById("hour_sel").value +":00"
     await jQuery.ajax({
@@ -270,7 +225,7 @@ async function onEachFeature(feature, layer) {
         console.log(bw);
         },
     error: function(){
-        //alert("Db is Error on bw")
+        alert(feature.properties['name'])
     }
     });
     if (feature.properties['name'] in dict){
@@ -278,6 +233,7 @@ async function onEachFeature(feature, layer) {
     }
     else{
         layer.bindPopup(feature.properties['name']+":"+' 0 คน '+bw +' Mbs');
+    }
     }
 }
 
