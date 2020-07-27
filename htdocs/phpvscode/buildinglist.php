@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>KMITL Log Analytics - Building List</title>
     <link href="autocomplete.css" media="all" rel="Stylesheet" type="text/css" />
@@ -36,83 +37,31 @@
     </div>
     <div class='body_main'>
         <h2>Building List Page</h2>
-        <form autocomplete="off" action="" method="post">
+        <form name="inputForm" id="inputForm" autocomplete="off" method="post">
             <div class="autocomplete" style="width:300px;">
-                <input id="myInput" type="text" name="building" placeholder="ค้นหารายชื่อตึก" value="<?php echo isset($_POST['building']) ? $_POST['building'] : '' ?>">
+                <input id="buildingInput" type="text" name="buildingInput" placeholder="ค้นหารายชื่อตึก" value="<?php echo isset($_POST['buildingname']) ? $_POST['buildingname'] : '' ?>">
             </div>
             <input type="submit">
         </form>
-        <?php 
-            function query($id){
-                //MariaDB
-                    $hostname = "localhost";
-                    $username = "test";
-                    $password = "pogfLUYGtHCVS8Bq";
-                    $db = "log_analytics";
-
-                    $mysqli = new mysqli($hostname,$username,$password,$db);
-                    if($mysqli->connect_error){
-                        die("Database connection failed: " . $mysqli->connect_error);
-                    }
-
-                    $buildingname = $_POST['building'];
-                    echo "<h2>" . $buildingname . "</h2>"; 
-
-                    $stmt = $mysqli->prepare("SELECT * FROM buildingcsv WHERE buildingName = ?");
-                    $stmt->bind_param("s",$buildingname);
-
-                    $stmt->execute();
-                    $res = $stmt->get_result();
-
-                    echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 90%;\" >
-                    <span onscroll=\"\">";
-                        
-                    
-                    echo "<table border=\"1\" align=\"center\">
-                    <tr>
-                      <th>BuildingCode</th>
-                      <th>BuildingName</th>
-                      <th>IPClient</th>
-                    </tr>";
-                    while ($row = $res->fetch_assoc()){
-                        $bdCode = '%' . $row['BuildingCode'] .'%';
-                        $bdCode = str_replace('-', '', $bdCode);
-                        echo
-                        "<tr>
-                        <td>{$row['BuildingCode']}</td>
-                        <td>{$row['BuildingName']}</td>
-                        <td>{$row['IPClient']}</td>
-                        </tr>\n";
-
-                    }
-
-                    $stmt = $mysqli->prepare("SELECT * FROM apmac WHERE Name LIKE ?");
-                    $stmt->bind_param("s",$bdCode);
-
-                    $stmt->execute();
-                    $res = $stmt->get_result();
-
-                    echo "<table border=\"1\" align=\"center\">
-                    <tr>
-                      <th>AP</th>
-                      <th>MAC</th>
-                    </tr>";
-                    while ($row = $res->fetch_assoc()){
-                        echo
-                        "<tr>
-                        <td>{$row['Name']}</td>
-                        <td>{$row['MAC']}</td>
-                        </tr>\n";
-                    }
-
-                    echo "</span>
-                </div>";
-            }
-
-                if(isset($_POST['building'])){
-                    query($_POST['building']);
-                }
-        ?>
+        <div id="data_table"></div>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            console.log("do here");
+            $('#inputForm').submit(function(e) {
+                    var building = document.forms["inputForm"]["buildingInput"].value;
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: 'queryfunc.php',
+                        data: {functionname: 'buildinglistquery',arguement: building},
+                        success: function(table)
+                        {
+                            $("#data_table").html(table);
+                        }
+                    });
+            });
+        });
+        </script>
     </div>
     <div class='tail_main'></div>
 
@@ -219,6 +168,6 @@
         });
     }
     
-    autocomplete(document.getElementById("myInput"), building_names);
+    autocomplete(document.getElementById("buildingInput"), building_names);
 </script>
 </html>
