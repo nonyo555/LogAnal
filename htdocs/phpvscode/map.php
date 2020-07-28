@@ -16,7 +16,7 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
 </head>
-<body onload ='initalize()'>
+<body onload =''>
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
@@ -71,15 +71,14 @@
 </html>
 
 <script>
-    function initalize(){
-        var today = new Date();
-        var yesterday = new Date();
-        today.setUTCHours(18)
-        yesterday.setUTCHours(-6)
-        var dateTime = today.toISOString().slice(0,10);
-        document.getElementById("time_start").defaultValue = dateTime;
-        document.getElementById("time_start").max = dateTime;
-    }
+   
+    var today = new Date();
+    var yesterday = new Date();
+    today.setUTCHours(18)
+    yesterday.setUTCHours(-6)
+    var dateTime = today.toISOString().slice(0,10);
+    document.getElementById("time_start").defaultValue = dateTime;
+    document.getElementById("time_start").max = dateTime;   
     var  mymap = L.map('mapid').setView([13.728345,100.778075], 17);
         L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
             maxZoom: 20,
@@ -144,10 +143,7 @@
 {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[100.779705097479,13.7302390134719,3.07674019121489],[100.77970676971,13.7300154986693,3.19812322420355],[100.780132543985,13.730031052739,3.57558880181614],[100.780133900085,13.7301000845203,3.33138085545873],[100.780050291787,13.7301181489363,3.23952642922863],[100.780042956628,13.7302593973759,2.73172759426191],[100.779705097479,13.7302390134719,3.07674019121489]]]},"properties":{"id":"051EDF456014BAD93EF6"}},
 {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[100.7790325631,13.730037570311,2.69310344055186],[100.779524906652,13.7300499539953,3.07161233550478],[100.779506159736,13.7303364836333,2.62806756216767],[100.779362521778,13.730323504774,2.63213230456668],[100.779234800471,13.7302748729865,2.6361970469657],[100.779121312933,13.7302081354745,2.64432653176372],[100.779059228904,13.7301599018491,2.65245601656174],[100.779031084263,13.7301170732181,2.66058550135977],[100.7790325631,13.730037570311,2.69310344055186]]]},"properties":{"id":"0915671AC814BADBAEDE","name":"อาคารจุฬาภรณ์ 2"}}
 ]}
-    // L.geoJSON(a, {
-    //     style: setStyle,
-    //     onEachFeature: onEachFeature
-    // }).addTo(mymap);
+
     var  dict =  {};
     changedate();
 async function changedate(){
@@ -222,7 +218,7 @@ async function onEachFeature(feature, layer) {
     data: {functionname: 'mapquerybw',arguement:[start,feature.properties['name']]},
     success: function (obj) {
         bw = obj;
-        console.log(bw);
+       // console.log(bw);
         },
     error: function(){
         alert(feature.properties['name'])
