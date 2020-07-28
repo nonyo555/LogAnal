@@ -5,7 +5,6 @@
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <link href="table.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
     <script>/*
         var jsondata;
@@ -99,7 +98,7 @@
 
     <div class='body_main'>
         <h2>Log List Page</h2>
-        <form name="inputForm" autocomplete="off" action="" onsubmit="return validateForm()" method="post">
+        <form name="inputForm" id="inputForm" autocomplete="off" method="post">
             <div class=time>
                 <label class='gtext'>Time</label>
                 <input id="start" name="start" class='time_start' placeholder='Start' type='datetime-local' value="<?php echo isset($_POST['start']) ? $_POST['start'] : '' ?>"/>
@@ -113,106 +112,126 @@
                 </div>
             </div>
         </form>
-                <?php 
-            function query($userID,$start,$stop){
-                //MariaDB
-                    $hostname = "localhost";
-                    $username = "test";
-                    $password = "pogfLUYGtHCVS8Bq";
-                    $db = "log_analytics";
-
-                    $mysqli = new mysqli($hostname,$username,$password,$db);
-                    if($mysqli->connect_error){
-                        die("Database connection failed: " . $mysqli->connect_error);
-                    }
-                    
-                    if($userID == ""){
-                        if($start == "" && $stop ==""){
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2")
-                            //or die (mysqli_error($dbconnect));
-                            $stmt = $mysqli->prepare("SELECT * FROM book2");
+        <div id="data_table"></div>
+        <form name="fileInputForm" id="fileInputForm" action = "" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" value="ImportFile">
+            <button name="submit_btn" class='imp_bt' type=submit accept=".csv">import</button>
+        </form>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#inputForm').submit(function(e) {
+                var validated = validateForm();
+                if(validated){
+                    var userID = document.forms["inputForm"]["userID"].value;
+                    var start = document.forms["inputForm"]["start"].value;
+                    var stop = document.forms["inputForm"]["stop"].value;
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: 'queryfunc.php',
+                        data: {functionname: 'loglistquery',arguement: [userID,start,stop]},
+                        success: function(table)
+                        {
+                            $("#data_table").html(table);
                         }
-                        else if($start != "" && $stop !=""){
-                            /*list($startdate,$starttime) = explode('T',$start);
-                            list($stopdate,$stoptime) = explode('T',$stop);
-                            $startdate .= " ".$starttime.':00';
-                            $stopdate .= " ".$stoptime. ":00";*/
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
-                            //or die (mysqli_error($dbconnect));
-
-                            $startdate = date('n/j/Y G:i',strtotime($start));
-                            $stopdate = date('n/j/Y G:i',strtotime($stop));
-
-                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE time >= ? AND time <= ?");
-
-                            $stmt->bind_param("ss",$startdate,$stopdate);
-                        }
-                    }
-                    else{
-                        if($start == "" && $stop == ""){
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}'")
-                            //or die (mysqli_error($dbconnect));
-
-                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ?");
-
-                            $stmt->bind_param("s",$userID);
-                        }
-                        else if($start != "" && $stop != ""){
-                            /*list($startdate,$starttime) = explode('T',$start);
-                            list($stopdate,$stoptime) = explode('T',$stop);
-                            $startdate .= " ".$starttime.':00';
-                            $stopdate .= " ".$stoptime. ":00";*/
-                            //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
-                            //or die (mysqli_error($dbconnect));
-
-                            $startdate = date('n/j/Y G:i',strtotime($start));
-                            $stopdate = date('n/j/Y G:i',strtotime($stop));
-
-                            $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ? AND time >= ? AND time <= ?");
-
-                            $stmt->bind_param("sss",$userID,$startdate,$stopdate);
-                        }
-                    }
-
-                    $stmt->execute();
-                    $res = $stmt->get_result();
-
-                    echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 98%;\" >
-                    <span onscroll=\"\">";
-                    echo "<table border=\"1\" align=\"center\">
-                    <tr>
-                      <th>time</th>
-                      <th>userID</th>
-                      <th>AP</th>
-                      <th>Bdcode</th>
-                      <th>Bdname</th>
-                      <th>Floor</th>
-                    </tr>";
-                        while ($row = $res->fetch_assoc()){
-                        echo
-                        "<tr>
-                        <td>{$row['time']}</td>
-                        <td>{$row['userID']}</td>
-                        <td>{$row['AP']}</td>
-                        <td>{$row['Bdcode']}</td>
-                        <td>{$row['BdName']}</td>
-                        <td>{$row['Floor']}</td>
-                        </tr>\n";
-                    
-                    }
-                    
-                echo "</span>
-                </div>";
+                    });
+                }
+            });
+            $('#fileInputForm').submit(function () {
+                var fileType = ".csv";
+                var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + fileType + ")$");
+                if (!regex.test($("#file").val().toLowerCase())) {
+                    alert("Invalid File. Upload : " + fileType + " File.");
+                    return false;
+                }
+                return true;
+        });
+    });
+        </script>
+        <?php          
+            $hostname = "localhost";
+            $username = "test";
+            $password = "pogfLUYGtHCVS8Bq";
+            $db = "log_analytics";
+    
+            $mysqli = new mysqli($hostname,$username,$password,$db);
+            if($mysqli->connect_error){
+                die("Database connection failed: " . $mysqli->connect_error);
             }
 
-                if(isset($_POST['userID']) && isset($_POST['start']) && isset($_POST['stop'])){
-                    query($_POST['userID'],$_POST['start'],$_POST['stop']);
+            if(isset($_POST["submit_btn"])){
+                $filename = $_FILES["file"]["tmp_name"];
+                if ($_FILES["file"]["size"] > 0) {
+                    $file = fopen("$filename","r");
+
+                    $flag = true;
+                    while(($column = fgetcsv($file,30000,",")) !== FALSE){
+                        if($flag){/*
+                            $sql = "SHOW COLUMNS FROM book2";
+                            $res = $mysqli->query($sql);
+
+                            while($row = $res->fetch_assoc()){
+                                $columns[] = $row['Field'];
+                            }*/
+                            
+                            $column[0] = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $column[0]);
+                
+                            if($column[0]=="userID"
+                            &&$column[1]=="AP"
+                            &&$column[2]=="time"
+                            &&$column[3]=="Bdcode"
+                            &&$column[4]=="BdName"
+                            &&$column[5]=="Floor"){
+                                $flag = false; 
+                                continue;
+                            } else {
+                                echo '<script type="text/javascript">';
+                                echo 'alert("Error : table columns does not match with the database")';
+                                echo '</script>';
+                                break;
+                            }
+                        }
+                        else{
+                            $userID = "";
+                            $AP = "";
+                            $time = "";
+                            $Bdcode = "";
+                            $BdName = "";
+                            $Floor = "";
+
+                            if (isset($column[0])) {
+                                $userID = mysqli_real_escape_string($mysqli, $column[0]);
+                            }
+                            if (isset($column[1])) {
+                                $AP = mysqli_real_escape_string($mysqli, $column[1]);
+                            }
+                            if (isset($column[2])) {
+                                $time = mysqli_real_escape_string($mysqli, $column[2]);
+                            }
+                            if (isset($column[3])) {
+                                $Bdcode = mysqli_real_escape_string($mysqli, $column[3]);
+                            }
+                            if (isset($column[4])) {
+                                $BdName = mysqli_real_escape_string($mysqli, $column[4]);
+                            }
+                            if (isset($column[5])) {
+                                $Floor = mysqli_real_escape_string($mysqli, $column[5]);
+                            }
+                            
+                            $stmt = $mysqli->prepare("INSERT INTO book2 (userID,AP,time,Bdcode,BdName,Floor) VALUES (?,?,?,?,?,?)");
+            
+                            $stmt->bind_param("ssssss",$userID,$AP,$time,$Bdcode,$BdName,$Floor);
+            
+                            $stmt->execute(); 
+                        }
+                    }
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Insert data Successfully!!")';
+                    echo '</script>';
                 }
-            ?>
-        <form action="">
-            <input type="file" id="input" value="ImportFile" multiple>
-            <button class='imp_bt' type=submit onclick="importFile()">import</button>
-        </form>   
+            }
+            
+        ?>
     </div>  
 
     <div class='tail_main'>
@@ -220,7 +239,7 @@
     </div>
 </body>
 <script>
-
+/*
     function readTextFile(file) {
         alert("hello")
         var file = fileList[i].name
@@ -255,7 +274,7 @@
             console.log(input[i].name);
         }
     }
-
+*/
 </script>
 
 </html>
