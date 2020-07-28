@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script>
         $(document).ready(function() {
             createChart();
@@ -96,7 +96,7 @@
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
     <div class='sub_main'>
-        <label class='sub'>Top-problem</label>
+        <label id = 'sub' class='sub'>Top-problem</label>
     </div>
     <div class='body_main'>
         <table width='100%' height="100%" cellspacing="0" cellpadding="0">
@@ -134,5 +134,50 @@
     <div class='tail_main'></div>
 
 </body>
+<script>
+topproblem();
+async function topproblem(){
+    var dict = [];
+    var today = new Date();
+    var yesterday = new Date();
+    today.setUTCHours(18)
+    yesterday.setUTCHours(-6)
+    var dateTime = today.toISOString().slice(0,16);
+    var yesTime  = yesterday.toISOString().slice(0,16);
+    await jQuery.ajax({
+    type: "POST",
+    url: 'queryfunc.php',
+    dataType: 'json',
+    data: {functionname: 'topproblem',arguement:[yesTime,dateTime]},
+    success: function (obj) {
+        dict = obj;
+        //console.log(dict);
+            },
+    error: function(){
+        alert("Db is Error")
+    }
+    });
+    lessbw = 'No';
+    for(var key in dict){
+        if(!('unKnownNetwork' == key.slice(0,14))){
+        if(lessbw == 'No'){
+            lessbw = [key,dict[key]];
+        }
+        else{
+            if(parseInt(lessbw[1]) > parseInt(dict[key])){
+                lessbw = [key,dict[key]];
+            }
 
+        }
+        }
+    }
+    if (lessbw[1] < 5 ){
+        document.getElementById("sub").innerHTML =  "ณ "+lessbw[0]+' เวลา '+moment(yesTime).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(dateTime ).format("dddd, MMMM Do YYYY HH:MM:SS") + 'มีค่า Bandwidth อยู่ที่ ' +lessbw[1]+" Mbs"
+    }
+    else {
+        document.getElementById("sub").innerHTML = 'ไม่มีค่า Bandwidth ที่ตํ่าเกินไปในเวลา ' +moment(yesTime).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(dateTime ).format("dddd, MMMM Do YYYY HH:MM:SS")
+    }
+}
+
+</script>
 </html>

@@ -99,6 +99,7 @@ body {
     border: 3px solid orangered; 
     border-radius: 20px;
     background-color: white;
+    text-align: center;
 }
 .sub{
     position: relative;

@@ -110,4 +110,23 @@
         }
         echo json_encode($dataset);
     }
+    else if ($_POST['functionname'] == 'topproblem'){
+        $start = $_POST['arguement'][0];
+        $stop = $_POST['arguement'][1];
+        $hostname = "localhost";
+        $username = "root";
+        $password = "1439";
+        $db = "phpserver";
+        $dbconnect=mysqli_connect($hostname,$username,$password,$db);
+        if ($dbconnect->connect_error) {
+        die("Database connection failed: " . $dbconnect->connect_error);
+        }
+        $sql = "SELECT * FROM Bandwidth WHERE time >= '$start' and time <= '$stop' ";
+        $result = mysqli_query($dbconnect,$sql);
+        $dict = [];
+        while ($row = mysqli_fetch_array($result)) {
+            $dict[$row[1]] = [$row[2]];
+        }
+        echo json_encode($dict);
+    }
 ?>
