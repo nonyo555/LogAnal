@@ -10,17 +10,17 @@
     <script>
         var building_names = [
         <?php 
-            $hostname = "localhost";
-            $username = "test";
-            $password = "pogfLUYGtHCVS8Bq";
-            $db = "log_analytics";
+            $hostname = "161.246.127.103";
+            $username = "root";
+            $password = "123456789";
+            $db = "database";
 
             $mysqli = new mysqli($hostname,$username,$password,$db);
-            $stmt = $mysqli->prepare("SELECT BuildingName FROM buildingcsv");
+            $stmt = $mysqli->prepare("SELECT BdName FROM building");
             $stmt->execute();
             $res = $stmt->get_result();
             while ($row = $res->fetch_assoc()) {
-                $building_name = $row["BuildingName"];
+                $building_name = $row["BdName"];
                 echo "'$building_name',";
             }
         ?>

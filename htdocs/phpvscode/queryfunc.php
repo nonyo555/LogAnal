@@ -129,4 +129,163 @@
         }
         echo json_encode($dict);
     }
+    else if ($_POST['functionname'] == 'loglistquery'){
+        $userID = $_POST['arguement'][0];
+        $start = $_POST['arguement'][1];
+        $stop = $_POST['arguement'][2];
+        
+        $hostname = "localhost";
+        $username = "test";
+        $password = "pogfLUYGtHCVS8Bq";
+        $db = "log_analytics";
+
+        $mysqli = new mysqli($hostname,$username,$password,$db);
+        if($mysqli->connect_error){
+            die("Database connection failed: " . $mysqli->connect_error);
+        }
+                    
+        if($userID == ""){
+            if($start == "" && $stop ==""){
+                //$query = mysqli_query($dbconnect, "SELECT * FROM book2")
+                //or die (mysqli_error($dbconnect));
+                $stmt = $mysqli->prepare("SELECT * FROM book2");
+            }
+            else if($start != "" && $stop !=""){
+                /*list($startdate,$starttime) = explode('T',$start);
+                list($stopdate,$stoptime) = explode('T',$stop);
+                $startdate .= " ".$starttime.':00';
+                $stopdate .= " ".$stoptime. ":00";*/
+                //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE time >= '{$startdate}' AND time <='{$stopdate}'")
+                //or die (mysqli_error($dbconnect));
+
+                $startdate = date('n/j/Y G:i',strtotime($start));
+                $stopdate = date('n/j/Y G:i',strtotime($stop));
+
+                $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE time >= ? AND time <= ?");
+
+                $stmt->bind_param("ss",$startdate,$stopdate);
+            }
+        }
+        else{
+            if($start == "" && $stop == ""){
+                //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}'")
+                //or die (mysqli_error($dbconnect));
+
+                $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ?");
+
+                $stmt->bind_param("s",$userID);
+            }
+            else if($start != "" && $stop != ""){
+                /*list($startdate,$starttime) = explode('T',$start);
+                list($stopdate,$stoptime) = explode('T',$stop);
+                $startdate .= " ".$starttime.':00';
+                $stopdate .= " ".$stoptime. ":00";*/
+                //$query = mysqli_query($dbconnect, "SELECT * FROM book2 WHERE userID = '{$userID}' AND time >= '{$startdate}' AND time <='{$stopdate}'")
+                //or die (mysqli_error($dbconnect));
+
+                $startdate = date('n/j/Y G:i',strtotime($start));
+                $stopdate = date('n/j/Y G:i',strtotime($stop));
+
+                $stmt = $mysqli->prepare("SELECT * FROM book2 WHERE userID = ? AND time >= ? AND time <= ?");
+
+                $stmt->bind_param("sss",$userID,$startdate,$stopdate);
+            }
+        }
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 98%;\" >
+        <span onscroll=\"\">";
+        echo "<table border=\"1\" align=\"center\">
+        <tr>
+            <th>time</th>
+            <th>userID</th>
+            <th>AP</th>
+            <th>Bdcode</th>
+            <th>Bdname</th>
+            <th>Floor</th>
+            </tr>";
+            while ($row = $res->fetch_assoc()){
+            echo
+            "<tr>
+            <td>{$row['time']}</td>
+            <td>{$row['userID']}</td>
+            <td>{$row['AP']}</td>
+            <td>{$row['Bdcode']}</td>
+            <td>{$row['BdName']}</td>
+            <td>{$row['Floor']}</td>
+            </tr>\n";
+                    
+        }
+                    
+        echo "</span>
+        </div>";
+    }
+
+    else if($_POST['functionname'] == 'buildinglistquery'){
+        $buildingname = $_POST['arguement'];
+
+        $hostname = "localhost";
+        $username = "test";
+        $password = "pogfLUYGtHCVS8Bq";
+        $db = "log_analytics";
+
+        $mysqli = new mysqli($hostname,$username,$password,$db);
+        if($mysqli->connect_error){
+            die("Database connection failed: " . $mysqli->connect_error);
+        }
+
+        echo "<h2>" . $buildingname . "</h2>"; 
+
+        $stmt = $mysqli->prepare("SELECT * FROM buildingcsv WHERE buildingName = ?");
+        $stmt->bind_param("s",$buildingname);
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        echo "<div class=\"loglists\" style=\"overflow-y: scroll; width: 90%;\" >
+        <span onscroll=\"\">";
+                        
+                    
+        echo "<table border=\"1\" align=\"center\">
+        <tr>
+            <th>BuildingCode</th>
+            <th>BuildingName</th>
+            <th>IPClient</th>
+            </tr>";
+        while ($row = $res->fetch_assoc()){
+            $bdCode = '%' . $row['BuildingCode'] .'%';
+            $bdCode = str_replace('-', '', $bdCode);
+            echo
+            "<tr>
+            <td>{$row['BuildingCode']}</td>
+            <td>{$row['BuildingName']}</td>
+            <td>{$row['IPClient']}</td>
+            </tr>\n";
+
+        }
+
+        $stmt = $mysqli->prepare("SELECT * FROM apmac WHERE Name LIKE ?");
+        $stmt->bind_param("s",$bdCode);
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        echo "<table border=\"1\" align=\"center\">
+        <tr>
+            <th>AP</th>
+            <th>MAC</th>
+        </tr>";
+        while ($row = $res->fetch_assoc()){
+        echo
+            "<tr>
+            <td>{$row['Name']}</td>
+            <td>{$row['MAC']}</td>
+            </tr>\n";
+        }
+
+        echo "</span>
+        </div>";
+    }
 ?>
