@@ -1,8 +1,8 @@
 <html>
 <script></script>
 <head>
+    <title>KMITL Log Analytics - Map</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>KMITL Log Analytics - Map</title>.
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>

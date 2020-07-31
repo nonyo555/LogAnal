@@ -2,6 +2,7 @@
 
 <head>
     <title>KMITL Log Analytics - Log List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <link href="table.css" media="all" rel="Stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
