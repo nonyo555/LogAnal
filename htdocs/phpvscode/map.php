@@ -139,7 +139,7 @@ async function changedate(){
 
 function setStyle(feature) {
     if (feature.properties['name'] in dict){
-        numb= dict[feature.properties['name']]
+        numb= parseInt(dict[feature.properties['name']])
         if(numb > 100){
         return {
         "color": "red"
@@ -156,7 +156,7 @@ function setStyle(feature) {
         }
         else{
             return {
-            "color": "#ff7800"    }
+            "color": "pink"    }
         }
     }
     else{

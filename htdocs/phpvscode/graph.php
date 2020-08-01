@@ -10,9 +10,9 @@
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
-    <div class='sub_main'>
+    <!-- <div class='sub_main'>
         <label class='sub'>Top-problem</label>
-    </div>
+    </div> -->
     <div class='body_main' id ='bname'>
       
         <h2>Graph Page</h2>
@@ -52,9 +52,7 @@
     </div>
 
     <div class='tail_main'>
-        <div class='sub_main'>
-            <label class='sub' id = 'Ana_log'>Log Analytic</label>
-        </div>
+
     </div>
 
 </body>
@@ -96,7 +94,6 @@
     function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
     }
-    
     var data = [];
     var start =document.getElementById("time_start").value
     var stop = document.getElementById("time_stop").value

@@ -93,9 +93,9 @@
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
 
-    <div class='sub_main'>
+    <!-- <div class='sub_main'>
         <label class='sub'>Top-problem</label>
-    </div>
+    </div> -->
 
     <div class='body_main'>
         <h2>Log List Page</h2>
