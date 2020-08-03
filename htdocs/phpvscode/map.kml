@@ -2,7 +2,7 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document id="1PseVhA-nrD3q4CcPy2wudoigi4uIrt8z">
 	<name>KMITL BUILDING</name>
-	<gx:CascadingStyle kml:id="__managed_style_07845B061C14DE979417">
+	<gx:CascadingStyle kml:id="__managed_style_0791E8BA5F14EA144F66">
 		<Style>
 			<IconStyle>
 				<scale>1.2</scale>
@@ -15,7 +15,7 @@
 			</LabelStyle>
 			<LineStyle>
 				<color>ff2dc0fb</color>
-				<width>6</width>
+				<width>5.21739</width>
 			</LineStyle>
 			<PolyStyle>
 				<color>40ffffff</color>
@@ -24,38 +24,17 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<StyleMap id="__managed_style_042DB267AD14DE979416">
+	<StyleMap id="__managed_style_0BC27067C014EA144F65">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#__managed_style_1B62C0A8DA14DE979416</styleUrl>
+			<styleUrl>#__managed_style_1C525CD86614EA144F65</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#__managed_style_07845B061C14DE979417</styleUrl>
+			<styleUrl>#__managed_style_0791E8BA5F14EA144F66</styleUrl>
 		</Pair>
 	</StyleMap>
-	<gx:CascadingStyle kml:id="__managed_style_1B62C0A8DA14DE979416">
-		<Style>
-			<IconStyle>
-				<Icon>
-					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
-				</Icon>
-				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
-			</IconStyle>
-			<LabelStyle>
-			</LabelStyle>
-			<LineStyle>
-				<color>ff2dc0fb</color>
-				<width>4</width>
-			</LineStyle>
-			<PolyStyle>
-				<color>40ffffff</color>
-			</PolyStyle>
-			<BalloonStyle>
-			</BalloonStyle>
-		</Style>
-	</gx:CascadingStyle>
-	<gx:CascadingStyle kml:id="__managed_style_2E3D55E04214DE97940E">
+	<gx:CascadingStyle kml:id="__managed_style_0180C9DF5214EA144F60">
 		<styleUrl>https://earth.google.com/balloon_components/base/1.0.18.6/card_template.kml#main</styleUrl>
 		<Style>
 			<IconStyle>
@@ -69,7 +48,7 @@
 			</LabelStyle>
 			<LineStyle>
 				<color>ff2dc0fb</color>
-				<width>6</width>
+				<width>5.21739</width>
 			</LineStyle>
 			<PolyStyle>
 				<color>40ffffff</color>
@@ -78,7 +57,28 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<gx:CascadingStyle kml:id="__managed_style_1B921FFC2214DE97940E">
+	<gx:CascadingStyle kml:id="__managed_style_1C525CD86614EA144F65">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.47826</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_10FD56282114EA144F5F">
 		<styleUrl>https://earth.google.com/balloon_components/base/1.0.18.6/card_template.kml#main</styleUrl>
 		<Style>
 			<IconStyle>
@@ -91,7 +91,7 @@
 			</LabelStyle>
 			<LineStyle>
 				<color>ff2dc0fb</color>
-				<width>4</width>
+				<width>3.47826</width>
 			</LineStyle>
 			<PolyStyle>
 				<color>40ffffff</color>
@@ -100,14 +100,14 @@
 			</BalloonStyle>
 		</Style>
 	</gx:CascadingStyle>
-	<StyleMap id="__managed_style_03BC55A25B14DE97940E">
+	<StyleMap id="__managed_style_0C4BF28D5F14EA144F5F">
 		<Pair>
 			<key>normal</key>
-			<styleUrl>#__managed_style_1B921FFC2214DE97940E</styleUrl>
+			<styleUrl>#__managed_style_10FD56282114EA144F5F</styleUrl>
 		</Pair>
 		<Pair>
 			<key>highlight</key>
-			<styleUrl>#__managed_style_2E3D55E04214DE97940E</styleUrl>
+			<styleUrl>#__managed_style_0180C9DF5214EA144F60</styleUrl>
 		</Pair>
 	</StyleMap>
 	<Placemark id="0D5BAABAAA13AEB38432">
@@ -122,7 +122,7 @@
 			<range>716.3176611284872</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -145,7 +145,7 @@
 			<range>1004.23207178028</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -168,7 +168,7 @@
 			<range>374.0393104295799</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -191,7 +191,7 @@
 			<range>352.5718702385711</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -214,7 +214,7 @@
 			<range>308.5576785871672</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -237,7 +237,7 @@
 			<range>308.0792234035835</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -260,7 +260,7 @@
 			<range>307.8301800984627</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -283,7 +283,7 @@
 			<range>504.3825733315316</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -306,7 +306,7 @@
 			<range>291.8972493257752</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -329,7 +329,7 @@
 			<range>171.4146295290448</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -352,7 +352,7 @@
 			<range>208.589285441376</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -375,7 +375,7 @@
 			<range>156.411120490684</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -398,7 +398,7 @@
 			<range>391.5724690172647</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -421,7 +421,7 @@
 			<range>264.0240305789121</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -432,31 +432,8 @@
 			</outerBoundaryIs>
 		</Polygon>
 	</Placemark>
-	<Placemark id="0272AD484713AF717B5E">
-		<name>KMITL Sirindhorn Building (ตึกพระเทพ) unknown32</name>
-		<LookAt>
-			<longitude>100.7774168568902</longitude>
-			<latitude>13.72973993120569</latitude>
-			<altitude>2.674086094373462</altitude>
-			<heading>-3.178524928252566</heading>
-			<tilt>19.37408344613616</tilt>
-			<gx:fovy>30.00005209993519</gx:fovy>
-			<range>260.4674974899536</range>
-			<altitudeMode>absolute</altitudeMode>
-		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
-		<Polygon>
-			<outerBoundaryIs>
-				<LinearRing>
-					<coordinates>
-						100.7773755711414,13.73010645506504,3.115175353557498 100.7768783747375,13.73010190612541,3.05863844261447 100.7768699083433,13.73027479253472,3.044504214878713 100.7775871360683,13.73031163774707,3.037437101010835 100.7775878285471,13.73040790678063,3.030369987142956 100.7775565964985,13.73040740839352,3.023302873275078 100.7775543632358,13.73041756759947,3.016235759407199 100.7768814951548,13.73038923457679,3.002101531671443 100.7760774093261,13.73037974238697,2.987967303935685 100.7760763914147,13.73036578329887,2.973833076199929 100.7760544479986,13.73036632314698,2.945564620728415 100.7760560468534,13.73026901751112,2.931430392992658 100.7767900176786,13.73027504582725,2.92436327912478 100.776791191355,13.73008957153695,2.917296165256901 100.7761867847753,13.7300855900753,2.889027709785388 100.7761876004564,13.73012926239964,2.82488601862933 100.775737949732,13.73011495216217,2.792815173051301 100.7757412090258,13.72985477237583,2.776779750262287 100.7761929355844,13.72987590829475,2.760744327473272 100.77618821223,13.73003574551189,3.2112347924443 100.7763282928905,13.73003842599093,3.436480024929813 100.7763346898231,13.72981318090844,3.549102641172571 100.7767457551397,13.72981469011315,3.661725257415327 100.77675085819,13.72988777486003,3.7372438869705 100.7769321863204,13.72990058538423,3.676203596694105 100.7769396931102,13.7298255662607,3.67276767602964 100.7773853524026,13.72983400848826,3.132093695369658 100.7773755711414,13.73010645506504,3.115175353557498 
-					</coordinates>
-				</LinearRing>
-			</outerBoundaryIs>
-		</Polygon>
-	</Placemark>
 	<Placemark id="01460E152813AF750088">
-		<name>unknown42</name>
+		<name>อาคารพระเทพ A</name>
 		<LookAt>
 			<longitude>100.7777356265259</longitude>
 			<latitude>13.72933505421182</latitude>
@@ -467,12 +444,12 @@
 			<range>309.0575498725593</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
 					<coordinates>
-						100.7776502215814,13.72954936999584,2.91493932088448 100.7771571175469,13.72954588628014,4.171527934765171 100.7771764154711,13.72934711996313,4.303686531338212 100.7776397037251,13.72934983407254,2.92374371904909 100.7776502215814,13.72954936999584,2.91493932088448 
+						100.7776115749769,13.7295627340825,2.91493932088448 100.7771462670859,13.72954865245961,4.171527934765171 100.7771525775096,13.72937187064344,4.303686531338212 100.7776152279454,13.72938846709532,2.92374371904909 100.7776115749769,13.7295627340825,2.91493932088448 
 					</coordinates>
 				</LinearRing>
 			</outerBoundaryIs>
@@ -490,7 +467,7 @@
 			<range>473.8923486633576</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -513,7 +490,7 @@
 			<range>189.2918943456243</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -536,7 +513,7 @@
 			<range>160.336606195051</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -559,7 +536,7 @@
 			<range>117.5454501066633</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -582,7 +559,7 @@
 			<range>251.8404705218563</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -605,7 +582,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -628,7 +605,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -651,7 +628,7 @@
 			<range>644.694382652524</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -674,7 +651,7 @@
 			<range>1045.236860753212</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -697,7 +674,7 @@
 			<range>1045.236860753212</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -720,7 +697,7 @@
 			<range>745.9015489512967</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -743,7 +720,7 @@
 			<range>747.5243053928717</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -766,7 +743,7 @@
 			<range>747.3697571603407</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -789,7 +766,7 @@
 			<range>747.0913014816324</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -812,7 +789,7 @@
 			<range>1047.034237228363</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -835,7 +812,7 @@
 			<range>313.2433316065362</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -858,7 +835,7 @@
 			<range>311.7507637405652</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -881,7 +858,7 @@
 			<range>226.0892768843769</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -904,7 +881,7 @@
 			<range>231.8690053039245</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -927,7 +904,7 @@
 			<range>238.4578405395223</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -950,7 +927,7 @@
 			<range>228.8363554932948</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -973,7 +950,7 @@
 			<range>330.934260113063</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -996,7 +973,7 @@
 			<range>302.9962599759893</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1019,7 +996,7 @@
 			<range>246.4927030215767</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1042,7 +1019,7 @@
 			<range>244.081861846571</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1065,7 +1042,7 @@
 			<range>666.3855562101526</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1088,7 +1065,7 @@
 			<range>362.1563638362204</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1111,7 +1088,7 @@
 			<range>190.580765879622</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1134,7 +1111,7 @@
 			<range>701.1850065064937</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1157,7 +1134,7 @@
 			<range>655.1301431194588</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1180,7 +1157,7 @@
 			<range>200.2327874130061</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1203,7 +1180,7 @@
 			<range>720.904090844997</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1226,7 +1203,7 @@
 			<range>1191.979990344553</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1249,7 +1226,7 @@
 			<range>299.5054817364144</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1272,7 +1249,7 @@
 			<range>237.0374245403582</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1295,7 +1272,7 @@
 			<range>227.6501954908599</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1318,7 +1295,7 @@
 			<range>201.8196185755733</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1341,7 +1318,7 @@
 			<range>332.2200837927449</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1364,7 +1341,7 @@
 			<range>151.9795982594951</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1387,7 +1364,7 @@
 			<range>182.671039256511</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1410,7 +1387,7 @@
 			<range>291.6652879113826</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1433,7 +1410,7 @@
 			<range>288.0660153292047</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1456,7 +1433,7 @@
 			<range>412.3035800542129</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1479,7 +1456,7 @@
 			<range>412.3035800542129</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1502,7 +1479,7 @@
 			<range>456.4832829426451</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1525,7 +1502,7 @@
 			<range>258.798316316861</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1548,7 +1525,7 @@
 			<range>190.4721904154212</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1571,7 +1548,7 @@
 			<range>269.0439509362477</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1594,7 +1571,7 @@
 			<range>185.3191842825618</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1617,7 +1594,7 @@
 			<range>113.535227099037</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1640,7 +1617,7 @@
 			<range>152.5844872475864</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1663,7 +1640,7 @@
 			<range>118.272288033786</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1686,7 +1663,7 @@
 			<range>114.994708941922</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1709,7 +1686,7 @@
 			<range>87.43266105526345</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1732,7 +1709,7 @@
 			<range>216.0947947316527</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1755,7 +1732,7 @@
 			<range>259.0113416325767</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1778,7 +1755,7 @@
 			<range>140.4653609167508</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1801,7 +1778,7 @@
 			<range>204.4903965273989</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1824,7 +1801,7 @@
 			<range>106.6502980316181</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1847,7 +1824,7 @@
 			<range>284.6122053606086</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1870,7 +1847,7 @@
 			<range>488.5226983520261</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1893,7 +1870,7 @@
 			<range>534.8057220271585</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1916,7 +1893,7 @@
 			<range>269.7889948676675</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1939,7 +1916,7 @@
 			<range>269.0331965301448</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1962,7 +1939,7 @@
 			<range>307.0365790963843</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -1985,7 +1962,7 @@
 			<range>227.1621216035419</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2008,7 +1985,7 @@
 			<range>229.3997334009327</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2031,7 +2008,7 @@
 			<range>316.2712995420953</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2054,7 +2031,7 @@
 			<range>278.7248169920349</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2077,7 +2054,7 @@
 			<range>127.3495862246455</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2100,7 +2077,7 @@
 			<range>215.0741923214446</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2123,7 +2100,7 @@
 			<range>127.8975162623101</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2146,7 +2123,7 @@
 			<range>198.9569069234494</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2169,7 +2146,7 @@
 			<range>204.7245366361312</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2192,7 +2169,7 @@
 			<range>129.0977798339554</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2215,7 +2192,7 @@
 			<range>176.8138860663021</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2238,7 +2215,7 @@
 			<range>301.1658554217502</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2261,7 +2238,7 @@
 			<range>301.8178181141411</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2284,7 +2261,7 @@
 			<range>149.5645271726062</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2307,7 +2284,7 @@
 			<range>224.1471563012237</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_042DB267AD14DE979416</styleUrl>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
@@ -2330,12 +2307,127 @@
 			<range>371.1243796460985</range>
 			<altitudeMode>absolute</altitudeMode>
 		</LookAt>
-		<styleUrl>#__managed_style_03BC55A25B14DE97940E</styleUrl>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
 		<Polygon>
 			<outerBoundaryIs>
 				<LinearRing>
 					<coordinates>
 						100.7765334372485,13.7250535939915,8.245718469817318 100.7764239842096,13.72505216732657,7.913040926452708 100.776423905203,13.72482780815315,5.341326860758278 100.7765381482986,13.72482876441869,5.017935773975822 100.7765334372485,13.7250535939915,8.245718469817318 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0B3E3AF3D414EA1C6DD1">
+		<name>อาคารพระเทพ B</name>
+		<LookAt>
+			<longitude>100.7770323260405</longitude>
+			<latitude>13.73015390146841</latitude>
+			<altitude>3.236149786575999</altitude>
+			<heading>-0.8032793020005187</heading>
+			<tilt>8.568684485133474</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>177.3796976218728</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7773789689765,13.73011015385207,3.117424129578974 100.7769242313324,13.73009460921303,4.116325715939427 100.7769285930779,13.72982249654556,3.631887176514539 100.7773750060481,13.72983721630158,3.162387728766445 100.7773789689765,13.73011015385207,3.117424129578974 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0D1EDEE42014EA1CEB13">
+		<name>อาคารพระเทพ C </name>
+		<LookAt>
+			<longitude>100.776692092386</longitude>
+			<latitude>13.73014536543452</latitude>
+			<altitude>3.450274500538419</altitude>
+			<heading>0.09196852969297807</heading>
+			<tilt>14.59391166460638</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>188.1125253798018</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7767345802626,13.73009459328322,4.218001606044133 100.776327800606,13.73009235976166,2.889030182590788 100.7763333321286,13.72981793326674,2.719476239760674 100.7767465008582,13.72982089685567,3.663012114965327 100.7767345802626,13.73009459328322,4.218001606044133 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0CA0BCBB6514EA1D9A98">
+		<name>อาคารพระเทพ D</name>
+		<LookAt>
+			<longitude>100.7770924927298</longitude>
+			<latitude>13.73038874102063</latitude>
+			<altitude>3.873024481399741</altitude>
+			<heading>-0.2597129041153685</heading>
+			<tilt>0.1816599143533505</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>189.282310408289</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7775878369914,13.73041706239193,3.237137032912401 100.7768670479675,13.73039706456451,5.157607771902257 100.7768653506895,13.73028203652749,6.074432134388116 100.7775847219239,13.73031036430582,3.268992381209614 100.7775878369914,13.73041706239193,3.237137032912401 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0D5D998C7914EA1E0C84">
+		<name>อาคารพระเทพ E</name>
+		<LookAt>
+			<longitude>100.7766393077285</longitude>
+			<latitude>13.73037511509329</latitude>
+			<altitude>4.029923197513412</altitude>
+			<heading>-2.590488385779667</heading>
+			<tilt>0.1759623194803419</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>189.1231614222852</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C4BF28D5F14EA144F5F</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7767718203083,13.73038914334898,5.072324479434975 100.7760526563183,13.73037773067911,3.215580657398083 100.776055945486,13.73026552739573,3.291625714403168 100.7767726062821,13.73027930486374,5.810372006905054 100.7767718203083,13.73038914334898,5.072324479434975 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="0E3ED5C0D514EA1FFF5B">
+		<name>โรงอาหาร F</name>
+		<LookAt>
+			<longitude>100.7763410317011</longitude>
+			<latitude>13.73036020337759</latitude>
+			<altitude>3.267872982663778</altitude>
+			<heading>-3.843834995782093</heading>
+			<tilt>0.1759637877139394</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>241.0926932123402</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0BC27067C014EA144F65</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						100.7761897964481,13.73012617693493,3.18514929559337 100.7757376226583,13.73011885994745,2.658814379248045 100.7757390191289,13.72986287659089,3.577961486890837 100.7761906735594,13.72987805954323,2.745586545300567 100.7761897964481,13.73012617693493,3.18514929559337 
 					</coordinates>
 				</LinearRing>
 			</outerBoundaryIs>
