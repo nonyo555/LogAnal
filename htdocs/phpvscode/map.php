@@ -1,8 +1,8 @@
 <html>
 <script></script>
 <head>
-    <title>KMITL Log Analytics - Map</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>KMITL Log Analytics - Map</title>.
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -115,16 +115,17 @@ async function changedate(){
             subdomains:['mt0','mt1','mt2','mt3']
         }).addTo(mymap);
     var start = document.getElementById("time_start").value+" "+document.getElementById("hour_sel").value +":00"
-    //console.log(start)
+    var stop = document.getElementById("time_start").value+" "+document.getElementById("hour_sel").value.slice(0,3)+"59"+":59"
+    //console.log(stop)
     // call php query function
     await jQuery.ajax({
     type: "POST",
     url: 'queryfunc.php',
     dataType: 'json',
-    data: {functionname: 'mapquerycn',arguement:[start]},
+    data: {functionname: 'mapquerycn',arguement:[start,stop]},
     success: function (obj) {
         dict = obj;
-        console.log(dict);
+       // console.log(dict);
             },
     error: function(){
         alert("Db is Error")
@@ -139,7 +140,7 @@ async function changedate(){
 
 function setStyle(feature) {
     if (feature.properties['name'] in dict){
-        numb= parseInt(dict[feature.properties['name']])
+        numb=  parseInt(dict[feature.properties['name']])
         if(numb > 100){
         return {
         "color": "red"
@@ -178,17 +179,17 @@ async function onEachFeature(feature, layer) {
     data: {functionname: 'mapquerybw',arguement:[start,feature.properties['name']]},
     success: function (obj) {
         bw = obj;
-       // console.log(bw);
+    //    console.log(start,feature.properties['name']);
         },
     error: function(){
-        alert(feature.properties['name'])
+       // alert(feature.properties['name'])
     }
     });
     if (feature.properties['name'] in dict){
-        layer.bindPopup(feature.properties['name']+": "+ dict[feature.properties['name']]+' คน' +bw +'Mbs');
+        layer.bindPopup(feature.properties['name']+" <br> จำนวน: "+ dict[feature.properties['name']]+ 'คน <br> BW : '+bw+'Mbps');
     }
     else{
-        layer.bindPopup(feature.properties['name']+":"+' 0 คน '+bw +' Mbs');
+	layer.bindPopup(feature.properties['name']+" <br> จำนวน: "+'0 คน <br> BW : '+bw+'Mbps');
     }
     }
 }

@@ -20,7 +20,7 @@
                 dataType: 'json',
                 data: {functionname: 'indexbarquery'},
                 success: function (data) {
-                    console.log(data);
+                    //console.log(data);
                     var date = [];
                     var usage = [];
 
@@ -53,8 +53,7 @@
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true,
-                                    steps: 10,
-                                    stepValue: 6,
+                                    stepSize: 500 ,
                                 }
                             }]
                         }
@@ -106,17 +105,17 @@
                     <br>
                     <br>
                     <span class='button'><a href="../phpvscode/map.php"
-                            style="text-decoration:none; color: #333333;"><label class="text">Map</label></a></span>
+                            style="text-decoration:none; color: #333333;"><label class="text" style="cursor:pointer;">Map</label></a></span>
                     <br>
                     <span class='button'><a href="../phpvscode/graph.php"
-                            style="text-decoration:none; color: #333333;"><label class="text">Graph</label></a></span>
+                            style= "text-decoration:none; color: #333333;"><label class="text" style= "cursor:pointer;">Graph</label></a></span>
                     <br>
                     <span class='button'><a href="../phpvscode/loglist.php"
-                            style="text-decoration:none; color: #333333;"><label class="text">Log
+                            style="text-decoration:none; color: #333333;"><label class="text" style= "cursor:pointer;">Log
                                 List</label></a></span>
                     <br>
                     <span class='button'> <a href="../phpvscode/buildinglist.php"
-                            style="text-decoration:none; color: #333333;"><label class="text">Building
+                            style="text-decoration:none; color: #333333;"><label class="text" style="cursor:pointer;">Building
                                 List</label></a></span>
                 </td>
                 <td width="80%" height="100%" valign="top">
@@ -173,10 +172,10 @@ async function topproblem(){
         }
     }
     if (lessbw[1] < 5 ){
-        document.getElementById("sub").innerHTML =  "ณ "+lessbw[0]+' เวลา '+moment(yesTime).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(dateTime ).format("dddd, MMMM Do YYYY HH:MM:SS") + 'มีค่า Bandwidth อยู่ที่ ' +lessbw[1]+" Mbs"
+        document.getElementById("sub").innerHTML =  "ณ "+lessbw[0]+' เวลา '+moment(yesterday).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(today).format("dddd, MMMM Do YYYY HH:MM:SS") + 'มีค่า Bandwidth อยู่ที่ ' +lessbw[1]+" Mbs"
     }
     else {
-        document.getElementById("sub").innerHTML = 'ไม่มีค่า Bandwidth ที่ตํ่าเกินไปในเวลา ' +moment(yesTime).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(dateTime ).format("dddd, MMMM Do YYYY HH:MM:SS")
+        document.getElementById("sub").innerHTML = 'ไม่มีค่า Bandwidth ที่ตํ่าเกินไปในเวลา ' +moment(yesterday).format("dddd, MMMM Do YYYY HH:MM:SS")+" - "+ moment(today).format("dddd, MMMM Do YYYY HH:MM:SS")
     }
 }
 

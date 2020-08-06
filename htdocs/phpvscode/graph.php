@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>KMITL Log Analytics - Graph</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
@@ -10,9 +11,7 @@
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
-    <!-- <div class='sub_main'>
-        <label class='sub'>Top-problem</label>
-    </div> -->
+ 
     <div class='body_main' id ='bname'>
       
         <h2>Graph Page</h2>
@@ -50,8 +49,6 @@
     <div class = 'graphs'>
       <canvas id="canvas" style=" width: 1200px;  height: 600px; position: relative; color:blue;" ></canvas>
     </div>
-
-    <div class='tail_main'>
 
     </div>
 
@@ -94,6 +91,7 @@
     function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
     }
+    
     var data = [];
     var start =document.getElementById("time_start").value
     var stop = document.getElementById("time_stop").value
@@ -106,7 +104,7 @@
     data: {functionname: 'scatterquerybw',arguement:[start,stop,'อาคาร ECC']},
     success: function (obj) {
       data= obj;
-      console.log(obj)
+      //console.log(obj)
             },
     error: function(){
         alert("Db is Error")
@@ -231,6 +229,7 @@
     data: {functionname: type ,arguement: [start,stop,building.replace('\n','')]},
     success: function (obj) {
         data = obj;
+	//console.log(data)
             },
     error: function(){
         alert("Db is Error")

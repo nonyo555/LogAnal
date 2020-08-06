@@ -8,14 +8,21 @@
     <link href="index.css" media="all" rel="Stylesheet" type="text/css" />
     <link href="table.css" media="all" rel="Stylesheet" type="text/css" />
     <script>
-        var building_names = [
-        <?php 
-            $hostname = "161.246.127.103";
-            $username = "root";
-            $password = "123456789";
+	<?php 
+	    $hostname = "localhost";
+	    $username = "root";
+	    $password = "123456789";
             $db = "database";
 
             $mysqli = new mysqli($hostname,$username,$password,$db);
+	    $mysqli->set_charset("utf8");
+            if ($mysqli->connect_error) {
+                die("Database connection failed: " . $mysqli->connect_error);        
+}
+
+	?>
+        var building_names = [
+        <?php 
             $stmt = $mysqli->prepare("SELECT BdName FROM building");
             $stmt->execute();
             $res = $stmt->get_result();
@@ -32,9 +39,6 @@
     <div class='head_main'>
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
-    <!-- <div class='sub_main'>
-        <label class='sub'>Top-problem</label>
-    </div> -->
     <div class='body_main'>
         <h2>Building List Page</h2>
         <form name="inputForm" id="inputForm" autocomplete="off" method="post">
@@ -46,7 +50,7 @@
         <div id="data_table"></div>
         <script type="text/javascript">
         $(document).ready(function() {
-            console.log("do here");
+            //console.log("do here");
             $('#inputForm').submit(function(e) {
                     var building = document.forms["inputForm"]["buildingInput"].value;
                     e.preventDefault();

@@ -93,10 +93,6 @@
         <a href="../phpvscode/index.php"><img src="../img/header.png"></a>
     </div>
 
-    <!-- <div class='sub_main'>
-        <label class='sub'>Top-problem</label>
-    </div> -->
-
     <div class='body_main'>
         <h2>Log List Page</h2>
         <form name="inputForm" id="inputForm" autocomplete="off" method="post">
@@ -151,9 +147,9 @@
         </script>
         <?php          
             $hostname = "localhost";
-            $username = "test";
-            $password = "pogfLUYGtHCVS8Bq";
-            $db = "log_analytics";
+            $username = "root";
+            $password = "123456789";
+            $db = "database";
     
             $mysqli = new mysqli($hostname,$username,$password,$db);
             if($mysqli->connect_error){
@@ -166,9 +162,10 @@
                     $file = fopen("$filename","r");
 
                     $flag = true;
+		    $inserted = true;
                     while(($column = fgetcsv($file,30000,",")) !== FALSE){
                         if($flag){/*
-                            $sql = "SHOW COLUMNS FROM book2";
+                            $sql = "SHOW COLUMNS FROM user_go";
                             $res = $mysqli->query($sql);
 
                             while($row = $res->fetch_assoc()){
@@ -178,60 +175,62 @@
                             $column[0] = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $column[0]);
                 
                             if($column[0]=="userID"
-                            &&$column[1]=="AP"
+                            &&$column[1]=="mac"
                             &&$column[2]=="time"
-                            &&$column[3]=="Bdcode"
-                            &&$column[4]=="BdName"
-                            &&$column[5]=="Floor"){
+                            &&$column[3]=="AP"
+                            &&$column[4]=="Building"
+                            &&$column[5]=="floor"){
                                 $flag = false; 
                                 continue;
                             } else {
                                 echo '<script type="text/javascript">';
                                 echo 'alert("Error : table columns does not match with the database")';
                                 echo '</script>';
+				$inserted = false;
                                 break;
                             }
                         }
                         else{
                             $userID = "";
-                            $AP = "";
+                            $mac = "";
                             $time = "";
-                            $Bdcode = "";
-                            $BdName = "";
-                            $Floor = "";
+                            $AP = "";
+                            $Building = "";
+                            $floor = "";
 
                             if (isset($column[0])) {
                                 $userID = mysqli_real_escape_string($mysqli, $column[0]);
                             }
                             if (isset($column[1])) {
-                                $AP = mysqli_real_escape_string($mysqli, $column[1]);
+                                $mac = mysqli_real_escape_string($mysqli, $column[1]);
                             }
                             if (isset($column[2])) {
                                 $time = mysqli_real_escape_string($mysqli, $column[2]);
                             }
                             if (isset($column[3])) {
-                                $Bdcode = mysqli_real_escape_string($mysqli, $column[3]);
+                                $AP = mysqli_real_escape_string($mysqli, $column[3]);
                             }
                             if (isset($column[4])) {
-                                $BdName = mysqli_real_escape_string($mysqli, $column[4]);
+                                $Building = mysqli_real_escape_string($mysqli, $column[4]);
                             }
                             if (isset($column[5])) {
-                                $Floor = mysqli_real_escape_string($mysqli, $column[5]);
+                                $floor = mysqli_real_escape_string($mysqli, $column[5]);
                             }
                             
-                            $stmt = $mysqli->prepare("INSERT INTO book2 (userID,AP,time,Bdcode,BdName,Floor) VALUES (?,?,?,?,?,?)");
+                            $stmt = $mysqli->prepare("INSERT INTO user_go (userID,mac,time,AP,Building,floor) VALUES (?,?,?,?,?,?)");
             
-                            $stmt->bind_param("ssssss",$userID,$AP,$time,$Bdcode,$BdName,$Floor);
+                            $stmt->bind_param("ssssss",$userID,$mac,$time,$AP,$Building,$floor);
             
                             $stmt->execute(); 
                         }
                     }
-                    echo '<script type="text/javascript">';
-                    echo 'alert("Insert data Successfully!!")';
-                    echo '</script>';
+		    if($inserted){
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Insert data Successfully!!")';
+                        echo '</script>';
+		    }
                 }
             }
-            
         ?>
     </div>  
 

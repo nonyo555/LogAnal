@@ -105,6 +105,7 @@ body {
     position: relative;
     top: 20%;
     margin-left: 12px;
+    font-size: 1vw;
 }
 
 .logo{
@@ -116,13 +117,14 @@ body {
 .button{
     background-color: rgba(255, 255, 255, .85);
     border: 1px solid black;
-    width: 240px;
-    height: 120px;
-    margin: 40px;
+    width:  12vw;
+    height: 12vh;
+    margin: 4vh;
     display: inline-block;
     position : flex;
     text-align: center;
     border-radius: 20px;
+    //cursor: pointer;
 }
 
 .custom-select {
@@ -220,8 +222,8 @@ body {
         position: relative;
         justify-content: center;
         align-items: center;
-        height: 80vh;
-        width: 65vw;
+	height: 80vh;
+	width: 65 vw;
     }
     .loglists{
       margin: 10px;
